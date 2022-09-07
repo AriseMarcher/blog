@@ -3,8 +3,8 @@
 module.exports = {
   base: "/blog/",
   dest: "",
-  title: "arisemarcher--我的博客",
-  description: "for better learn",
+  title: "我的博客",
+  description: "世事如落花 心境自空明",
   theme: 'reco',
   head: [
     ['meta', {
@@ -57,7 +57,7 @@ module.exports = {
         modelStyle: {
           position: "fixed",
           bottom: "0px",
-          right: "0px",
+          right: "66px",
           opacity: "1",
           zIndex: 99999
         }
@@ -65,7 +65,6 @@ module.exports = {
     ],
     '@vuepress-reco/extract-code',
     '@vuepress/plugin-register-components',
-    'go-top',
     'cursor-effects',
     [
       'ribbon',

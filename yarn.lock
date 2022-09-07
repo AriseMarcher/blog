@@ -9058,11 +9058,6 @@
     "remove-markdown" "0.3.0"
     "striptags" "3.1.1"
 
-"vuepress-plugin-go-top@^1.0.4":
-  "integrity" "sha512-VxYrZmvC9agXVOEzy1G7mJj23p17O7CVmcXhlaFtQ+J827OcIqNC1X646/gOI8Hfn8or17+J+8/Bg0ZSRyizEA=="
-  "resolved" "https://registry.npmmirror.com/vuepress-plugin-go-top/-/vuepress-plugin-go-top-1.0.4.tgz"
-  "version" "1.0.4"
-
 "vuepress-plugin-mailchimp@^1.4.1":
   "integrity" "sha512-4t5ZaKZXu5ZkwgE+WW//7CgXgz6DEhRefGrO5aql4PwapauNXlHKgQ2JMf9FRe5y5WHjNpDHYveEDNzISZmxJw=="
   "resolved" "https://registry.npmmirror.com/vuepress-plugin-mailchimp/-/vuepress-plugin-mailchimp-1.4.2.tgz"
