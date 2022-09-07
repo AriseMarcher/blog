@@ -1,7 +1,7 @@
 // const bgmConfig = require('../configJson/bgm.json')
 
 module.exports = {
-  dest: "",
+  dest: "/blog/",
   title: "arisemarcher",
   description: "for better learn",
   theme: 'reco',
