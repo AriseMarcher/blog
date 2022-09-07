@@ -47,6 +47,15 @@ module.exports = {
         text: "标签"
       },
     },
+    sidebar: {
+      '/web/': [
+        {
+          title: 'Gulp',
+          collapsable: true,
+          children: ['gulp/01-gulp-start', 'gulp/02-gulp-htmlmin']
+        }
+      ]
+    },
   },
   plugins: [
     [
