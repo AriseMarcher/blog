@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gulp配置篇--07--js使用js库jq扩展 | arisemarcher</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="for better learn">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.cde51cd6.css" as="style"><link rel="preload" href="/assets/js/app.261a973e.js" as="script"><link rel="preload" href="/assets/js/3.68f410f4.js" as="script"><link rel="preload" href="/assets/js/1.20371234.js" as="script"><link rel="preload" href="/assets/js/20.a6586d63.js" as="script"><link rel="prefetch" href="/assets/js/10.5376a25b.js"><link rel="prefetch" href="/assets/js/11.7555016b.js"><link rel="prefetch" href="/assets/js/12.516a878b.js"><link rel="prefetch" href="/assets/js/13.820cae63.js"><link rel="prefetch" href="/assets/js/14.7cf98b13.js"><link rel="prefetch" href="/assets/js/15.cef80170.js"><link rel="prefetch" href="/assets/js/16.79e1926d.js"><link rel="prefetch" href="/assets/js/17.df93c16f.js"><link rel="prefetch" href="/assets/js/18.2c56f254.js"><link rel="prefetch" href="/assets/js/19.71548d46.js"><link rel="prefetch" href="/assets/js/21.4ad2dcf8.js"><link rel="prefetch" href="/assets/js/22.5aea1e01.js"><link rel="prefetch" href="/assets/js/23.c833de17.js"><link rel="prefetch" href="/assets/js/24.df3a91c2.js"><link rel="prefetch" href="/assets/js/25.1bfeda9b.js"><link rel="prefetch" href="/assets/js/4.8e8bd1ed.js"><link rel="prefetch" href="/assets/js/5.b50015d6.js"><link rel="prefetch" href="/assets/js/6.ea83df9e.js"><link rel="prefetch" href="/assets/js/7.ee8f9f47.js"><link rel="prefetch" href="/assets/js/8.90b0e298.js"><link rel="prefetch" href="/assets/js/9.b2d4a6db.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cde51cd6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-5bb33761><div data-v-5bb33761><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-5bb33761 data-v-5bb33761><h3 class="title" data-v-59e6cb88>arisemarcher</h3> <p class="description" data-v-59e6cb88>for better learn</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>arisemarcher</span>
+          
+        <!---->
+        2022
+      </a></span></div></div> <div class="hide" data-v-5bb33761><header class="navbar" data-v-5bb33761><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">arisemarcher</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/InstallationTutorial/" class="nav-link"><i class="undefined"></i>
+  InstallationTutorial
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vuepress/" class="nav-link"><i class="undefined"></i>
+  vuepress
+</a></li><li class="dropdown-item"><!----> <a href="/categories/gulp/" class="nav-link"><i class="undefined"></i>
+  gulp
+</a></li><li class="dropdown-item"><!----> <a href="/categories/js/" class="nav-link"><i class="undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-5bb33761></div> <aside class="sidebar" data-v-5bb33761><div class="personal-info-wrapper" data-v-1fad0c41 data-v-5bb33761><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    arisemarcher
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>13</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>4</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/InstallationTutorial/" class="nav-link"><i class="undefined"></i>
+  InstallationTutorial
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vuepress/" class="nav-link"><i class="undefined"></i>
+  vuepress
+</a></li><li class="dropdown-item"><!----> <a href="/categories/gulp/" class="nav-link"><i class="undefined"></i>
+  gulp
+</a></li><li class="dropdown-item"><!----> <a href="/categories/js/" class="nav-link"><i class="undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-5bb33761><h3 class="title" data-v-59e6cb88>Gulp配置篇--07--js使用js库jq扩展</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>arisemarcher</span>
+          
+        <!---->
+        2022
+      </a></span></div></div> <div data-v-5bb33761><div data-v-5bb33761><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">Gulp配置篇--07--js使用js库jq扩展</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>arisemarcher</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>8/5/2022</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>gulp</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="文件目录结构"><a href="#文件目录结构" class="header-anchor">#</a> 文件目录结构</h2> <p>在js目录下的common目录下存放公共的js文件，此处用jq举例</p> <div class="language- extra-class"><pre class="language-text"><code>├── code-origin // 原始入口文件
+│   ├── html
+│      ├── index.html 
+│      ├── common.html 
+│      ├── xxxxx.html
+│   ├── css
+│      ├── index.css 
+│      ├── common.css 
+│      ├── xxxxx.css
+│   ├── js
+│      ├── common
+│         ├── jquery-3.6.0.min.js
+│      ├── index.js 
+│      ├── common.js 
+│      ├── xxxxx.js
+├── code-mini   // 经过Gulp处理打包后的文件
+├── node_modules
+└── .gitignore
+└── gulpfile.js 
+└── package.json
+</code></pre></div><h2 id="gulpfile-js-配置-比较详细"><a href="#gulpfile-js-配置-比较详细" class="header-anchor">#</a> gulpfile.js 配置 （比较详细）</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> series<span class="token punctuation">,</span> parallel<span class="token punctuation">,</span> src<span class="token punctuation">,</span> dest <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> gulpLoadPlugins <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-load-plugins'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> htmlmin <span class="token operator">=</span> gulpLoadPlugins<span class="token punctuation">.</span>htmlmin<span class="token punctuation">;</span>
+<span class="token keyword">const</span> uglify <span class="token operator">=</span> gulpLoadPlugins<span class="token punctuation">.</span>uglify<span class="token punctuation">;</span>
+<span class="token keyword">const</span> cleanCss <span class="token operator">=</span> gulpLoadPlugins<span class="token punctuation">.</span>cleanCss<span class="token punctuation">;</span>
+<span class="token keyword">const</span> babel <span class="token operator">=</span> gulpLoadPlugins<span class="token punctuation">.</span>babel<span class="token punctuation">;</span>
+<span class="token keyword">const</span> browserify <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'browserify'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> babelify <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'babelify'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> autoprefixer <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'autoprefixer'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> sourcemaps <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-sourcemaps'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> postcss <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-postcss'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> stripDebug <span class="token operator">=</span> gulpLoadPlugins<span class="token punctuation">.</span>stripDebug
+<span class="token keyword">const</span> source <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'vinyl-source-stream'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> buffer     <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'vinyl-buffer'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> del <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'del'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> enterFileName <span class="token operator">=</span> <span class="token string">'code-origin'</span>
+<span class="token keyword">const</span> exportFileName <span class="token operator">=</span> <span class="token string">'code-mini'</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">miniHtml</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>enterFileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/**/*.html</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">htmlmin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">collapseWhitespace</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 压缩HTML</span>
+      <span class="token literal-property property">collapseBooleanAttributes</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 省略布尔属性值</span>
+      <span class="token literal-property property">removeTagWhitespace</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 清除制表符的空白</span>
+      <span class="token literal-property property">removeEmptyAttributes</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 清除 空的属性值</span>
+      <span class="token literal-property property">removeComments</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 清除 HTML 中的注释</span>
+      <span class="token literal-property property">removeScriptTypeAttributes</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 删除&lt;script&gt;的type=&quot;text/javascript&quot;</span>
+      <span class="token literal-property property">removeStyleLinkTypeAttributes</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 删除&lt;style&gt;和&lt;link&gt;的type=&quot;text/css&quot;</span>
+      <span class="token literal-property property">minifyJS</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 压缩 html文件中的 script</span>
+      <span class="token literal-property property">minifyCSS</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 压缩 html文件中的 style</span>
+      <span class="token literal-property property">minifyURLs</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>exportFileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">miniJs</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 由于使用babel文件处理js文件会增加'use strict'且会增加一些require</span>
+  <span class="token comment">// 但其实并不需要使用babel对jq文件进行兼容处理，故而用语法 ! 来不执行该文件</span>
+  <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span>
+    <span class="token punctuation">[</span>
+      <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>enterFileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/**/*.js</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+      <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">!</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>enterFileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/js/common/*.js</span><span class="token template-punctuation string">`</span></span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">babel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">uglify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">compress</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">mangle</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">stripDebug</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>exportFileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">bundle</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 需要处理ES6+至ES5的js文件</span>
+  <span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token literal-property property">entry</span><span class="token operator">:</span> <span class="token string">&quot;code-origin/js/index.js&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">rename</span><span class="token operator">:</span> <span class="token string">&quot;index.js&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token string">&quot;code-mini/js&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token literal-property property">entry</span><span class="token operator">:</span> <span class="token string">&quot;code-origin/js/common.js&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">rename</span><span class="token operator">:</span> <span class="token string">&quot;common.js&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token string">&quot;code-mini/js&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+  <span class="token comment">// 当 .babelrc.js中有配置的时候 .transform(babelify,{xxx})</span>
+  <span class="token comment">// 可以简写为 .transform(babelify)</span>
+
+  options<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">option</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">browserify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">entries</span><span class="token operator">:</span> option<span class="token punctuation">.</span>entry
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">transform</span><span class="token punctuation">(</span>babelify<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">presets</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;@babel/preset-env&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">[</span><span class="token string">&quot;@babel/plugin-transform-runtime&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          <span class="token string-property property">&quot;absoluteRuntime&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+          <span class="token string-property property">&quot;corejs&quot;</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+          <span class="token string-property property">&quot;helpers&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token string-property property">&quot;regenerator&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token string-property property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token string">&quot;7.18.10&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">bundle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">source</span><span class="token punctuation">(</span>option<span class="token punctuation">.</span>rename<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">buffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">uglify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">compress</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">mangle</span><span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token comment">// .pipe(stripDebug()) // 是否去除 console.log和debugger 为了演示暂时注释</span>
+      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span>option<span class="token punctuation">.</span>output<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  cb <span class="token operator">&amp;&amp;</span> <span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">miniCss</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>enterFileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/**/*.css</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>sourcemaps<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">postcss</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+      <span class="token function">autoprefixer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">overrideBrowserslist</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'&gt; 1%'</span><span class="token punctuation">,</span> <span class="token string">'last 2 versions'</span><span class="token punctuation">,</span> <span class="token string">'Firefox ESR'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">cascade</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token comment">//  是否美化属性值</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>sourcemaps<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">cleanCss</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">format</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 属性值：false|keep-breaks|beautify 默认false(压缩)</span>
+      <span class="token literal-property property">inline</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'none'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 当 css文件中有 @import 'xxx.css'语法时, 属性值为none则不将 xxx.css全部解析到当前的css文件</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>exportFileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 用于清除输出目录</span>
+<span class="token keyword">const</span> <span class="token function-variable function">clean</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">del</span><span class="token punctuation">(</span>exportFileName<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 用于拷贝文件</span>
+<span class="token keyword">const</span> <span class="token function-variable function">copy</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">enter<span class="token punctuation">,</span> output</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span>enter<span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> copyAll <span class="token operator">=</span> <span class="token function">copy</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>enterFileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/**</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>exportFileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+
+exports<span class="token punctuation">.</span>miniHtml <span class="token operator">=</span> miniHtml
+exports<span class="token punctuation">.</span>miniJs <span class="token operator">=</span> miniJs
+exports<span class="token punctuation">.</span>miniCss <span class="token operator">=</span> miniCss
+exports<span class="token punctuation">.</span>clean <span class="token operator">=</span> clean
+exports<span class="token punctuation">.</span>bundle <span class="token operator">=</span> bundle
+
+<span class="token comment">// 同步管道运行</span>
+<span class="token comment">// 1. 清除输出文件下的所有文件</span>
+<span class="token comment">// 2. 将原始目标文件下的所有文件全部拷贝至输出文件下（文件目录结构一样）</span>
+<span class="token comment">// 3. 异步管道执行；分别是 html、js、和css文件的压缩 （需要bundle的js文件可以不参与此处的压缩，因为bundle还会走一遍）</span>
+<span class="token comment">// 4. 对需要压缩的es6+的文件执行bundle打包，使其兼容至es5并能让浏览器识别</span>
+
+exports<span class="token punctuation">.</span>default <span class="token operator">=</span> <span class="token function">series</span><span class="token punctuation">(</span>
+  clean<span class="token punctuation">,</span>
+  copyAll<span class="token punctuation">,</span>
+  <span class="token function">parallel</span><span class="token punctuation">(</span>
+    miniHtml<span class="token punctuation">,</span>
+    miniJs<span class="token punctuation">,</span>
+    miniCss<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  bundle<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre></div><h2 id="package-json相关依赖和命令"><a href="#package-json相关依赖和命令" class="header-anchor">#</a> package.json相关依赖和命令</h2> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;tasks&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gulp --tasks&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gulp&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;miniHtml&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gulp miniHtml&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;miniJs&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gulp miniJs&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;miniCss&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gulp miniCss&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;bundle&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gulp bundle&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;devDependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;@babel/core&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^7.18.10&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;@babel/plugin-transform-runtime&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^7.18.10&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;@babel/preset-env&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^7.18.10&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;autoprefixer&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^7.2.6&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;babelify&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^10.0.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;browserify&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^17.0.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;del&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^6.1.1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;gulp&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^4.0.2&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;gulp-babel&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^8.0.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;gulp-clean-css&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^4.3.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;gulp-htmlmin&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^5.0.1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;gulp-load-plugins&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^2.0.7&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;gulp-postcss&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^9.0.1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;gulp-sourcemaps&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^3.0.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;gulp-strip-debug&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^3.0.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;gulp-uglify&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^3.0.2&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;vinyl-buffer&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^1.0.1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;vinyl-source-stream&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^2.0.0&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;dependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;@babel/runtime-corejs3&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^7.18.9&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="效果展示"><a href="#效果展示" class="header-anchor">#</a> 效果展示</h2> <div class="custom-block tip"><p class="title"></p><p>使用es6+语法的原始js文件</p></div><h3 id="code-origin-js-common-js"><a href="#code-origin-js-common-js" class="header-anchor">#</a> code-origin/js/common.js</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">const</span> commomParams <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">userName</span><span class="token operator">:</span> <span class="token string">'小明'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">sex</span><span class="token operator">:</span> <span class="token string">'man'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> elseParams <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">interest</span><span class="token operator">:</span> <span class="token string">'basketball'</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">job</span><span class="token operator">:</span> <span class="token string">'teacher'</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h3 id="code-origin-js-index-js"><a href="#code-origin-js-index-js" class="header-anchor">#</a> code-origin/js/index.js</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token literal-property property">commomParams</span><span class="token operator">:</span> commonParams <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./common'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> commonDefault <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./common'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token string">'origin'</span><span class="token punctuation">,</span> <span class="token string">'other'</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> fruitName <span class="token operator">=</span> <span class="token string">'banner'</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">the includes result is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>fruitName<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'the commonDefault value is'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>commonDefault<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'the commomParams value is'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>commonParams<span class="token punctuation">)</span>
+
+
+<span class="token keyword">const</span> el <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&quot;.box&quot;</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span>
+</code></pre></div><h2 id="通过html文件引入index-js-并在控制台中打印结果如下"><a href="#通过html文件引入index-js-并在控制台中打印结果如下" class="header-anchor">#</a> 通过html文件引入index.js，并在控制台中打印结果如下</h2> <p><img src="/images/gulp/html-console.png" alt="打印结果"></p></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-ac050c62><li class="level-2" data-v-ac050c62><a href="/views/gulp/07-gulp-babel-jquery.html#文件目录结构" class="sidebar-link reco-side-文件目录结构" data-v-ac050c62>文件目录结构</a></li><li class="level-2" data-v-ac050c62><a href="/views/gulp/07-gulp-babel-jquery.html#gulpfile-js-配置-比较详细" class="sidebar-link reco-side-gulpfile-js-配置-比较详细" data-v-ac050c62>gulpfile.js 配置 （比较详细）</a></li><li class="level-2" data-v-ac050c62><a href="/views/gulp/07-gulp-babel-jquery.html#package-json相关依赖和命令" class="sidebar-link reco-side-package-json相关依赖和命令" data-v-ac050c62>package.json相关依赖和命令</a></li><li class="level-2" data-v-ac050c62><a href="/views/gulp/07-gulp-babel-jquery.html#效果展示" class="sidebar-link reco-side-效果展示" data-v-ac050c62>效果展示</a></li><li class="level-3" data-v-ac050c62><a href="/views/gulp/07-gulp-babel-jquery.html#code-origin-js-common-js" class="sidebar-link reco-side-code-origin-js-common-js" data-v-ac050c62>code-origin/js/common.js</a></li><li class="level-3" data-v-ac050c62><a href="/views/gulp/07-gulp-babel-jquery.html#code-origin-js-index-js" class="sidebar-link reco-side-code-origin-js-index-js" data-v-ac050c62>code-origin/js/index.js</a></li><li class="level-2" data-v-ac050c62><a href="/views/gulp/07-gulp-babel-jquery.html#通过html文件引入index-js-并在控制台中打印结果如下" class="sidebar-link reco-side-通过html文件引入index-js-并在控制台中打印结果如下" data-v-ac050c62>通过html文件引入index.js，并在控制台中打印结果如下</a></li></ul></main></div> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:190px;display:none;" data-v-5775ee02>
+      欢迎来到 arisemarcher
+    </div> <div class="operation" style="right:90px;bottom:40px;display:none;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:none;" data-v-5775ee02></i></div> <canvas id="banniang" width="150" height="220" class="live2d" style="position:fixed;bottom:0px;right:0px;opacity:1;z-index:99999;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><div id="goTop" class="hide-cat" data-v-bf92849a></div><canvas id="vuepress-canvas-cursor"></canvas><canvas id="vuepress-canvas-ribbon"></canvas><div></div><APlayer audio="" fixed="true" autoplay="autoplay" theme="#b7daff" loop="loop" order="list" preload="auto" volume="0.7" mutex="true" lrc-type="3" list-max-height="250" storage-name="vuepress-plugin-meting" id="aplayer-fixed"></APlayer></div></div>
+    <script src="/assets/js/app.261a973e.js" defer></script><script src="/assets/js/3.68f410f4.js" defer></script><script src="/assets/js/1.20371234.js" defer></script><script src="/assets/js/20.a6586d63.js" defer></script>
+  </body>
+</html>
