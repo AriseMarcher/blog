@@ -3,13 +3,21 @@
 module.exports = {
   base: "/blog/",
   dest: "",
-  title: "arisemarcher",
+  title: "arisemarcher--我的博客",
   description: "for better learn",
   theme: 'reco',
   head: [
     ['meta', {
       name: 'viewport',
       content: 'width=device-width,initial-scale=1,user-scalable=no'
+    }],
+    ['meta', {
+      name: 'description',
+      content: 'arisemarcher个人主页，前端，Gulp'
+    }],
+    ['meta', {
+      name: 'keywords',
+      content: '个人主页，博客，arisemarcher'
     }]
   ],
   themeConfig: {
