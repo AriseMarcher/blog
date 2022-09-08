@@ -1,4 +1,4 @@
-const myConfig = require('./public/json/myConfig.json')
+// const myConfig = require('./public/json/myConfig.json')
 
 module.exports = {
   base: "/blog/",
@@ -59,7 +59,18 @@ module.exports = {
         {
           title: 'Gulp',
           collapsable: true,
-          children: myConfig.gulp
+          // children: myConfig.gulp
+          children: [
+            "gulp/01-gulp-start",
+            "gulp/02-gulp-htmlmin",
+            "gulp/03-gulp-clean-css",
+            "gulp/04-gulp-uglify",
+            "gulp/05-gulp-babel",
+            "gulp/06-gulp-browserify",
+            "gulp/07-gulp-babel-jquery",
+            "gulp/08-gulp-concat",
+            "gulp/09-gulp-watch"
+          ]
         }
       ]
     },
