@@ -5,8 +5,9 @@
   "author": "arisemarcher",
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "dev": "npm run test & vuepress dev docs",
+    "build": "npm run test & vuepress build docs",
+    "test": "node configjson.js"
   },
   "devDependencies": {
     "vuepress": "^1.9.7",

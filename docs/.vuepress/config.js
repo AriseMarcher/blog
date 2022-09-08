@@ -1,4 +1,6 @@
 // const bgmConfig = require('../configJson/bgm.json')
+// const { gulpChildren } = require('../web/configjson.js')
+const myConfig = require('./public/json/myConfig.json')
 
 module.exports = {
   base: "/blog/",
@@ -47,12 +49,31 @@ module.exports = {
         text: "标签"
       },
     },
+    // 搜索设置
+    search: true,
+    searchMaxSuggestions: 10,
+    // 自动形成侧边导航
+    subSidebar: 'auto',
+    sidebarDepth: 1,
+    displayAllHeaders: true,
+    activeHeaderLinks: false, // 默认值：true
     sidebar: {
       '/web/': [
         {
           title: 'Gulp',
           collapsable: true,
-          children: ['gulp/01-gulp-start', 'gulp/02-gulp-htmlmin']
+          children: myConfig.gulp
+          // children: [
+          //   'gulp/01-gulp-start',
+          //   'gulp/02-gulp-htmlmin',
+          //   'gulp/03-gulp-clean-css',
+          //   'gulp/04-gulp-uglify',
+          //   'gulp/05-gulp-babel',
+          //   'gulp/06-gulp-browserify',
+          //   'gulp/07-gulp-babel-jquery',
+          //   'gulp/08-gulp-concat',
+          //   'gulp/09-gulp-watch'
+          // ]
         }
       ]
     },
