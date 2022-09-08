@@ -19,4 +19,14 @@ const getData = async(baseDir = 'gulp') => {
   }
   await addToFile(baseDir, result)
 }
-getData()
+
+cleanJson = async() => {
+  await fs.writeFile('docs/.vuepress/public/json/myConfig.json', JSON.stringify({}, null, 2), { encoding: 'utf8' });
+}
+
+const start = async () => {
+  await cleanJson()
+  await getData()
+}
+
+start()

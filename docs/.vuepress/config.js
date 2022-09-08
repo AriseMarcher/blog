@@ -1,5 +1,3 @@
-// const bgmConfig = require('../configJson/bgm.json')
-// const { gulpChildren } = require('../web/configjson.js')
 const myConfig = require('./public/json/myConfig.json')
 
 module.exports = {
@@ -26,7 +24,6 @@ module.exports = {
     type: 'blog',
     author: 'arisemarcher',
     authorAvatar: '/avatar.png',
-    subSidebar: 'auto', //在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
     // 博客配置
     nav: [{
         text: '首页',
@@ -54,29 +51,19 @@ module.exports = {
     searchMaxSuggestions: 10,
     // 自动形成侧边导航
     subSidebar: 'auto',
-    sidebarDepth: 1,
+    sidebarDepth: 2,
     displayAllHeaders: true,
-    activeHeaderLinks: false, // 默认值：true
+    activeHeaderLinks: true, // 默认值：true
     sidebar: {
       '/web/': [
         {
           title: 'Gulp',
           collapsable: true,
           children: myConfig.gulp
-          // children: [
-          //   'gulp/01-gulp-start',
-          //   'gulp/02-gulp-htmlmin',
-          //   'gulp/03-gulp-clean-css',
-          //   'gulp/04-gulp-uglify',
-          //   'gulp/05-gulp-babel',
-          //   'gulp/06-gulp-browserify',
-          //   'gulp/07-gulp-babel-jquery',
-          //   'gulp/08-gulp-concat',
-          //   'gulp/09-gulp-watch'
-          // ]
         }
       ]
     },
+    lastUpdated: true
   },
   plugins: [
     [
@@ -95,7 +82,7 @@ module.exports = {
     ],
     '@vuepress-reco/extract-code',
     '@vuepress/plugin-register-components',
-    'cursor-effects',
+    'cursor-effects', // 点击炫酷样式
     [
       'ribbon',
       {

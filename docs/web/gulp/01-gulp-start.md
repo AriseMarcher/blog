@@ -1,5 +1,5 @@
 ---
-title: Gulp配置篇--01--基本使用
+title: 基本使用
 date: 2022/07/31
 tags:
  - gulp
@@ -7,15 +7,15 @@ categories:
  -  gulp
 ---
 
-[Gulp官网](https://www.gulpjs.com.cn/)
-
 ## 介绍
+
+[Gulp官网](https://www.gulpjs.com.cn/)
 
 基于流的自动化构建工具，在开发过程中实现任务自动化，提高效率，创造更大的价值。
 
-## 基本使用（gulp4.x）
+### 基本使用（gulp4.x）
 
-### 检查node、npm和npx是否OK，如我使用的node版本为 16.12.0
+检查node、npm和npx是否OK，如我使用的node版本为 16.12.0
 
 ```bash
 node --version
