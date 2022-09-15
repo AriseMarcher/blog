@@ -62,24 +62,6 @@ module.exports = {
           children: item.value
         }
       })
-      // '/web/': [
-      //   {
-      //     title: 'Gulp',
-      //     collapsable: true,
-      //     // children: myConfig.gulp
-      //     children: [
-      //       "gulp/01-gulp-start",
-      //       "gulp/02-gulp-htmlmin",
-      //       "gulp/03-gulp-clean-css",
-      //       "gulp/04-gulp-uglify",
-      //       "gulp/05-gulp-babel",
-      //       "gulp/06-gulp-browserify",
-      //       "gulp/07-gulp-babel-jquery",
-      //       "gulp/08-gulp-concat",
-      //       "gulp/09-gulp-watch"
-      //     ]
-      //   }
-      // ]
     },
     lastUpdated: true
   },
@@ -101,14 +83,14 @@ module.exports = {
     '@vuepress-reco/extract-code',
     '@vuepress/plugin-register-components',
     'cursor-effects', // 点击炫酷样式
-    [
-      'ribbon',
-      {
-        size: 90, // width of the ribbon, default: 90
-        opacity: 0.8, // opacity of the ribbon, default: 0.3
-        zIndex: -1, // z-index property of the background, default: -1
-      },
-    ],
+    // [
+    //   'ribbon',
+    //   {
+    //     size: 90, // width of the ribbon, default: 90
+    //     opacity: 0.8, // opacity of the ribbon, default: 0.3
+    //     zIndex: -1, // z-index property of the background, default: -1
+    //   },
+    // ],
     [
       'dynamic-title',
       {
