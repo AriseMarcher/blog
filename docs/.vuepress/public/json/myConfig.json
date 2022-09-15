@@ -1,13 +1,22 @@
-{
-  "gulp": [
-    "gulp/01-gulp-start",
-    "gulp/02-gulp-htmlmin",
-    "gulp/03-gulp-clean-css",
-    "gulp/04-gulp-uglify",
-    "gulp/05-gulp-babel",
-    "gulp/06-gulp-browserify",
-    "gulp/07-gulp-babel-jquery",
-    "gulp/08-gulp-concat",
-    "gulp/09-gulp-watch"
-  ]
-}
+[
+  {
+    "key": "gulp",
+    "value": [
+      "gulp/01-gulp-start.md",
+      "gulp/02-gulp-htmlmin.md",
+      "gulp/03-gulp-clean-css.md",
+      "gulp/04-gulp-uglify.md",
+      "gulp/05-gulp-babel.md",
+      "gulp/06-gulp-browserify.md",
+      "gulp/07-gulp-babel-jquery.md",
+      "gulp/08-gulp-concat.md",
+      "gulp/09-gulp-watch.md"
+    ]
+  },
+  {
+    "key": "vite",
+    "value": [
+      "vite/自动化引入.md"
+    ]
+  }
+]
