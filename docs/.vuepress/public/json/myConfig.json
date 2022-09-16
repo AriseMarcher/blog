@@ -22,7 +22,9 @@
   {
     "key": "weixin",
     "value": [
-      "weixin/1.小程序简介.md"
+      "weixin/1.小程序简介.md",
+      "weixin/2.小程序基础.md",
+      "weixin/3.目录结构.md"
     ]
   }
 ]
