@@ -18,5 +18,11 @@
     "value": [
       "vite/自动化引入.md"
     ]
+  },
+  {
+    "key": "weixin",
+    "value": [
+      "weixin/1.小程序简介.md"
+    ]
   }
 ]
