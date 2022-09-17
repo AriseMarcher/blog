@@ -1,32 +1,54 @@
-[
-  {
-    "key": "gulp",
-    "value": [
-      "gulp/01-gulp-start.md",
-      "gulp/02-gulp-htmlmin.md",
-      "gulp/03-gulp-clean-css.md",
-      "gulp/04-gulp-uglify.md",
-      "gulp/05-gulp-babel.md",
-      "gulp/06-gulp-browserify.md",
-      "gulp/07-gulp-babel-jquery.md",
-      "gulp/08-gulp-concat.md",
-      "gulp/09-gulp-watch.md"
-    ]
-  },
-  {
-    "key": "vite",
-    "value": [
-      "vite/自动化引入.md"
-    ]
-  },
-  {
-    "key": "weixin",
-    "value": [
-      "weixin/1.小程序简介.md",
-      "weixin/2.小程序基础.md",
-      "weixin/3.目录结构.md",
-      "weixin/4.小程序项目实践.md",
-      "weixin/5.界面展示.md"
-    ]
-  }
-]
+{
+  "/web/": [
+    {
+      "title": "gulp",
+      "collapsable": true,
+      "children": [
+        "gulp/01-gulp-start.md",
+        "gulp/02-gulp-htmlmin.md",
+        "gulp/03-gulp-clean-css.md",
+        "gulp/04-gulp-uglify.md",
+        "gulp/05-gulp-babel.md",
+        "gulp/06-gulp-browserify.md",
+        "gulp/07-gulp-babel-jquery.md",
+        "gulp/08-gulp-concat.md",
+        "gulp/09-gulp-watch.md"
+      ]
+    },
+    {
+      "title": "vite",
+      "collapsable": true,
+      "children": [
+        "vite/自动化引入.md"
+      ]
+    },
+    {
+      "title": "weixin",
+      "collapsable": true,
+      "children": [
+        "weixin/1.小程序简介.md",
+        "weixin/2.小程序基础.md",
+        "weixin/3.目录结构.md",
+        "weixin/4.小程序项目实践.md",
+        "weixin/5.界面展示.md",
+        "weixin/6.小程序发布.md"
+      ]
+    }
+  ],
+  "/cross-platform/": [
+    {
+      "title": "flutter",
+      "collapsable": true,
+      "children": [
+        "flutter/入门.md"
+      ]
+    },
+    {
+      "title": "uniapp",
+      "collapsable": true,
+      "children": [
+        "uniapp/入门.md"
+      ]
+    }
+  ]
+}
