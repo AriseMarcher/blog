@@ -281,4 +281,4 @@ console.log(el)
 
 ## 通过html文件引入index.js，并在控制台中打印结果如下
 
-![打印结果](/images/gulp/html-console.png)
+<img :src="$withBase('/images/gulp/html-console.png')" alt="打印结果">

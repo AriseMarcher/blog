@@ -364,4 +364,4 @@ npm run build
 
 在html中引入concat生成后的js文件运行正常
 
-![打印结果](/images/gulp/concat-mini.png)
+<img :src="$withBase('/images/gulp/concat-mini.png')" alt="打印结果">

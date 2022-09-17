@@ -120,7 +120,8 @@ console.log(arr.includes(fruitName))
 ### 经过bundle处理的压缩后的代码
 
 很大，如下图，望不到底部
-![结构](/images/gulp/browserify.png)
+<img :src="$withBase('/images/gulp/browserify.png')" alt="结构">
+
 
 虽然很大，但用html引入该js是可以正常在浏览器上运行的，当然，包括IE。
 
