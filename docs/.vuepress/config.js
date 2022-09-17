@@ -54,15 +54,7 @@ module.exports = {
     sidebarDepth: 2,
     displayAllHeaders: true,
     activeHeaderLinks: true, // 默认值：true
-    sidebar: {
-      '/web/': myConfig.map(item => {
-        return {
-          title: item.key,
-          collapsable: true,
-          children: item.value
-        }
-      })
-    },
+    sidebar: myConfig,
     lastUpdated: true
   },
   plugins: [

@@ -9,19 +9,20 @@ const addToFile = async (key, value) => {
   await fs.writeFile('docs/.vuepress/public/json/myConfig.json', JSON.stringify(fileContents, null, 2), { encoding: 'utf8' });
 }
 
-const innerPath = 'docs/web'
-const getData = async(baseDir = 'gulp') => {
+// const innerPath = 'docs/web'
+const getData = async(key, innerPath) => {
   let result = []
   let files = await fs.readdir(innerPath)
   for (let dir of files) {
     const subFiles = await fs.readdir(`${innerPath}/${dir}`)
     let newPaths = subFiles.map(item => `${dir}/${item}`)
     result.push({
-      key: dir,
-      value: newPaths
+      title: dir,
+      collapsable: true,
+      children: newPaths
     })
   }
-  return result
+  await addToFile(`/${key}/`, result)
 }
 
 cleanJson = async() => {
@@ -32,12 +33,17 @@ writeNewJson = async (content) => {
   await fs.writeFile('docs/.vuepress/public/json/myConfig.json', JSON.stringify(content, null, 2), { encoding: 'utf8' });
 }
 
+const AllPaths = ['web', 'cross-platform']
+
 const start = async () => {
   await cleanJson()
-
-  let result = await getData()
-
-  writeNewJson(result)
+  for (let path of AllPaths) {
+    await getData(path, `docs/${path}`)
+  }
 }
 
 start()
+
+module.exports = {
+  AllPaths
+}
