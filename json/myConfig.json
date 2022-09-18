@@ -47,7 +47,8 @@
       "title": "uniapp",
       "collapsable": true,
       "children": [
-        "uniapp/入门.md"
+        "uniapp/入门.md",
+        "uniapp/初始化相关配置.md"
       ]
     }
   ]
