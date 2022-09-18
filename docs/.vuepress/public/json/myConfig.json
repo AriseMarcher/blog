@@ -50,7 +50,9 @@
         "uniapp/01-快速入门.md",
         "uniapp/02-初始化配置.md",
         "uniapp/03-生命周期.md",
-        "uniapp/04-路由配置.md"
+        "uniapp/04-路由配置.md",
+        "uniapp/05-常用组件.md",
+        "uniapp/06-常用API简介.md"
       ]
     }
   ]
