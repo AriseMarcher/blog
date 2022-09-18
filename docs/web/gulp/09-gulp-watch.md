@@ -1,6 +1,7 @@
 ---
 title: Gulp配置篇--09--gulp-watch
 date: 2022/08/06 12::07
+sidebar: auto
 tags:
  - gulp
 categories:

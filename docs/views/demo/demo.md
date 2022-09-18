@@ -1,6 +1,7 @@
 ---
 title: vuepress 使用vue组件基本使用
 date: 2021/12/5
+sidebar: false
 tags:
  - vuepress
 categories:

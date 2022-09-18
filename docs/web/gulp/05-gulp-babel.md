@@ -1,6 +1,7 @@
 ---
 title: Gulp配置篇--05--js-babel
 date: 2022/08/03 21:40
+sidebar: auto
 tags:
  - gulp
 categories:

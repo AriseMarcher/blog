@@ -1,6 +1,7 @@
 ---
 title: Nvm安装教程
 date: 2021/11/11
+sidebar: false
 tags:
  - InstallationTutorial
 categories:

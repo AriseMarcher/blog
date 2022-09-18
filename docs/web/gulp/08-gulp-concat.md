@@ -1,6 +1,7 @@
 ---
 title: Gulp配置篇--08--concat合并文件使用
 date: 2022/08/05 23:23
+sidebar: auto
 tags:
  - gulp
 categories:

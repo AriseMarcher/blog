@@ -1,6 +1,7 @@
 ---
 title: 基本使用
 date: 2022/07/31
+sidebar: auto
 tags:
  - gulp
 categories:

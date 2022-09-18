@@ -1,6 +1,7 @@
 ---
 title: Gulp配置篇--02--压缩html
 date: 2022/08/01 22:18
+sidebar: auto
 tags:
  - gulp
 categories:

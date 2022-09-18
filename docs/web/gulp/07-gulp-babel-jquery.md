@@ -1,6 +1,7 @@
 ---
 title: Gulp配置篇--07--js使用js库jq扩展
 date: 2022/08/05 21:10
+sidebar: auto
 tags:
  - gulp
 categories:

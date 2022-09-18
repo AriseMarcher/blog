@@ -1,6 +1,7 @@
 ---
 title: Gulp配置篇--06--js-browserify+babel
 date: 2022/08/04 20:48
+sidebar: auto
 tags:
  - gulp
 categories:
