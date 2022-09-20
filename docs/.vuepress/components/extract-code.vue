@@ -8,7 +8,7 @@
 export default {
   data () {
     return {
-      name: 'arisemarcher'
+      name: '新的内容'
     }
   }
 }
