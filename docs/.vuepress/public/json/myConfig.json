@@ -40,7 +40,8 @@
       "title": "flutter",
       "collapsable": true,
       "children": [
-        "flutter/01-概述.md"
+        "flutter/01-概述.md",
+        "flutter/02-环境搭建.md"
       ]
     },
     {
