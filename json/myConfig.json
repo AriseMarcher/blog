@@ -37,6 +37,14 @@
   ],
   "/cross-platform/": [
     {
+      "title": "Dart",
+      "collapsable": true,
+      "children": [
+        "Dart/01-基础.md",
+        "Dart/02-概述.md"
+      ]
+    },
+    {
       "title": "flutter",
       "collapsable": true,
       "children": [
