@@ -41,7 +41,8 @@
       "collapsable": true,
       "children": [
         "Dart/01-基础.md",
-        "Dart/02-概述.md"
+        "Dart/02-概述.md",
+        "Dart/03-语法基础.md"
       ]
     },
     {
