@@ -41,7 +41,8 @@
       "collapsable": true,
       "children": [
         "flutter/01-概述.md",
-        "flutter/02-环境搭建.md"
+        "flutter/02-环境搭建.md",
+        "flutter/03-初始化Flutter项目.md"
       ]
     },
     {
