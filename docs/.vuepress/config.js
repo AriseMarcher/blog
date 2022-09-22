@@ -4,6 +4,7 @@ module.exports = {
   base: "/blog/",
   dest: "",
   title: "我的博客",
+  // description: "世事如落花 心境自空明",
   description: "世事如落花 心境自空明",
   theme: 'reco',
   head: [
