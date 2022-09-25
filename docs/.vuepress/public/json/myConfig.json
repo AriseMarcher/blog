@@ -21,6 +21,13 @@
       "children": []
     },
     {
+      "title": "nuxtJs",
+      "collapsable": true,
+      "children": [
+        "nuxtJs/01-服务端.md"
+      ]
+    },
+    {
       "title": "vite",
       "collapsable": true,
       "children": [
@@ -32,7 +39,9 @@
       "collapsable": true,
       "children": [
         "vue2.0/01-源码分析之入口文件.md",
-        "vue2.0/02-源码分析之初始化.md"
+        "vue2.0/02-源码分析之初始化.md",
+        "vue2.0/03-源码分析首次渲染过程.md",
+        "vue2.0/04-数据响应式.md"
       ]
     },
     {
