@@ -162,5 +162,32 @@ export default {
   layout: 'foo'
 }
 </script>
+```
 
+#### 异步数据-asyncData
+
++ https://www.nuxtjs.cn/guide/async-data
++ 基本用法
+  - 它会将asyncData返回的数据融合组件data方法返回数据一并给组件
+  - 调用时机：服务端渲染期间和客户端路由更新之前
++ 注意事项
+  - 只能在页面组件中使用（pages下的组件）
+  - 没有this，因为它是在组件初始化之前被调用的
+
+#### 异步数据-上下文对象
+
+[地址](https://www.nuxtjs.cn/guide/async-data#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%AF%B9%E8%B1%A1)
+
+```vue
+<script>
+export default {
+  name: 'UserPage',
+  asyncData(context) {
+    console.log(context)
+  },
+  mounted() {
+    console.log(this.$route)
+  }
+}
+</script>
 ```
