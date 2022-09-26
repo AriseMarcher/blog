@@ -19,7 +19,8 @@
       "title": "nuxtJs",
       "collapsable": true,
       "children": [
-        "nuxtJs/01-服务端.md"
+        "nuxtJs/01-服务端.md",
+        "nuxtJs/02-nuxtJs基础.md"
       ]
     },
     {
