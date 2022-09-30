@@ -77,6 +77,7 @@ module.exports = {
     '@vuepress-reco/extract-code',
     '@vuepress/plugin-register-components',
     'cursor-effects', // 点击炫酷样式
+    'vuepress-plugin-code-copy',
     // [
     //   'ribbon',
     //   {
@@ -108,5 +109,19 @@ module.exports = {
         defaultCover: 'https://nyakku.moe/avatar.jpg',
       },
     ],
+    [
+      '@vuepress/medium-zoom',
+      {
+        selector: 'img',
+        // medium-zoom options here
+        // See: https://github.com/francoischalifour/medium-zoom#options
+        delay: 1000,
+        options: {
+          margin: 24,
+          background: 'rgba(25,18,25,0.9)',
+          scrollOffset: 40
+        }
+      }
+    ]
   ]
 }
