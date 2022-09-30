@@ -33,7 +33,8 @@
       "collapsable": true,
       "children": [
         "vite/自动化引入.md",
-        "vite/项目打包配置优化分析01.md"
+        "vite/项目打包配置优化分析01.md",
+        "vite/项目打包配置优化分析02.md"
       ]
     },
     {
