@@ -89,9 +89,9 @@ module.exports = {
     [
       'dynamic-title',
       {
-        showIcon: '/favicon.ico',
+        showIcon: '/blog/favicon.ico',
         showText: '🦉',
-        hideIcon: '/failure.ico',
+        hideIcon: '/blog/failure.ico',
         hideText: '🐝',
         recoverTime: 0,
       },
