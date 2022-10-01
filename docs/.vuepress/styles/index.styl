@@ -11,3 +11,15 @@
     .hero
       height: 150px !important
 
+.sidebar-links
+  .sidebar-group-items
+    li
+      .sidebar-link
+        position: relative
+      .active::before, .sidebar-link:hover::before
+        content: '☄️'
+        position: absolute
+        top: 5px
+        left: 8px
+        width: 20px
+        height: 20px

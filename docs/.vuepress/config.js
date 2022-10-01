@@ -3,7 +3,7 @@ const myConfig = require('./public/json/myConfig.json')
 module.exports = {
   base: "/blog/",
   dest: "",
-  title: "我的博客",
+  title: "🐂",
   // description: "世事如落花 心境自空明",
   description: "世事如落花 心境自空明",
   theme: 'reco',
@@ -90,10 +90,10 @@ module.exports = {
       'dynamic-title',
       {
         showIcon: '/favicon.ico',
-        showText: '(/≧▽≦/)咦！又好了！',
+        showText: '🦉',
         hideIcon: '/failure.ico',
-        hideText: '(●—●)喔哟，崩溃啦！',
-        recoverTime: 2000,
+        hideText: '🐝',
+        recoverTime: 0,
       },
     ],
     [
