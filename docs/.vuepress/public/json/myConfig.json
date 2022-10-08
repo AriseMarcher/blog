@@ -29,6 +29,13 @@
       ]
     },
     {
+      "title": "react",
+      "collapsable": true,
+      "children": [
+        "react/01-base.md"
+      ]
+    },
+    {
       "title": "vite",
       "collapsable": true,
       "children": [
