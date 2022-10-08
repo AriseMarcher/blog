@@ -32,6 +32,14 @@ React.createElement(
 
 从两种语法对比来看，JSX 语法的出现是为了让 React 开发人员编写用户界面代码更加轻松。
 
+:::tip
+jsx代码被转换的过程
+
+
+React.createElement是用来创建virtual Dom对象的。jsx会先被转化为React.createElement的调用，方法在调用后会返回virtual Dom对象，然后React再将virtual Dom对象转化为真实的Dom对象，再将真实的Dom对象显示在页面当中。
+:::
+
+
 [Babel REPL](https://babeljs.io/repl)
 
 ### 2. DOM 操作问题
@@ -148,6 +156,24 @@ const after = {
 
 在 React 代码执行前，JSX 会被 Babel 转换为 React.createElement 方法的调用，在调用 createElement 方法时会传入元素的类型，元素的属性，以及元素的子元素，createElement 方法的返回值为构建好的 Virtual DOM 对象。
 
+.babelrc配置
+之前是React.createElement，现在要尝试去实现这个方法
+
+```json
+{
+  "presets": [
+    "@babel/preset-env",
+    [
+      "@babel/preset-react",
+      {
+        "pragma": "TinyReact.createElement"
+      }
+    ]
+  ]
+}
+
+```
+
 ```jsx
 {
   type: "div",
@@ -156,7 +182,7 @@ const after = {
 }
 ```
 
-``` react
+``` jsx
 /**
  * 创建 Virtual DOM
  * @param {string} type 类型
