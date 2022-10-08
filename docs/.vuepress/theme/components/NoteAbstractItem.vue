@@ -7,7 +7,7 @@
     </div>
     <div>
       <div class="title">
-        <div>我加了一些东西</div>
+        <!-- <div>我加了一些东西</div> -->
         <div>
           <reco-icon v-if="item.frontmatter.keys" icon="reco-lock" />
           <router-link :to="item.path">{{item.title}}</router-link>
