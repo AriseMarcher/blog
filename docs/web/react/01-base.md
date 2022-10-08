@@ -10,7 +10,7 @@ categories:
 
 ### 1. React 介绍
 
-<img :src="$withBase('/images/react/1.png')" alt="">
+<img :src="$withBase('/images/react/base/1.png')" alt="">
 
 React 是一个用于构建用户界面的 JavaScript 库，它只负责应用的视图层，帮助开发人员构建快速且交互式的 web 应用程序。
 
@@ -275,7 +275,7 @@ class App extends Component {
 }
 ```
 
-<img :src="$withBase('/images/react/5.gif')" alt="">
+<img :src="$withBase('/images/react/base/5.gif')" alt="">
 
 ### 3. 组件
 
@@ -283,7 +283,7 @@ class App extends Component {
 
 React 是基于组件的方式进行用户界面开发的. 组件可以理解为对页面中某一块区域的封装。
 
-<img :src="$withBase('/images/react/2.png')" alt="">
+<img :src="$withBase('/images/react/base/2.png')" alt="">
 
 
 #### 3.2 创建组件
@@ -399,7 +399,7 @@ const Person = (props) => {
 
 5.  单向数据流使组件之间的数据流动变得可预测. 使得定位程序错误变得简单.
 
-  <img :src="$withBase('/images/react/3.png')" alt="">
+  <img :src="$withBase('/images/react/base/3.png')" alt="">
 
 
 #### 3.4 类组件状态 state
@@ -497,7 +497,7 @@ const Person = props => {
 
 #### 3.5 类组件生命周期函数
 
-<img :src="$withBase('/images/react/4.jpg')" alt="">
+<img :src="$withBase('/images/react/base/4.jpg')" alt="">
 
 
 在组件完成更新之前需要做某种逻辑或者计算，就需要用到快照
@@ -518,7 +518,7 @@ getSnapshotBeforeUpdate(prevProps, prevState) {
 
 通过 Context 可以跨层级传递数据
 
-<img :src="$withBase('/images/react/6.png')" alt="">
+<img :src="$withBase('/images/react/base/6.png')" alt="">
 
 
 ```jsx
