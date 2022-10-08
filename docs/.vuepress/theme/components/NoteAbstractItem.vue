@@ -4,7 +4,6 @@
     @click="$router.push(item.path)">
     <reco-icon v-if="item.frontmatter.sticky" icon="reco-sticky" />
     <div class="reco-img">
-      45555
     </div>
     <div>
       <div class="title">
