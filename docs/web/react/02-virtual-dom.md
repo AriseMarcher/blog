@@ -33,7 +33,7 @@ React.createElement(
 从两种语法对比来看，JSX 语法的出现是为了让 React 开发人员编写用户界面代码更加轻松。
 
 :::tip
-jsx代码被转换的过程
+jsx代码会先被转换为React.createElement方法的调用
 
 
 React.createElement是用来创建virtual Dom对象的。jsx会先被转化为React.createElement的调用，方法在调用后会返回virtual Dom对象，然后React再将virtual Dom对象转化为真实的Dom对象，再将真实的Dom对象显示在页面当中。
@@ -106,7 +106,7 @@ React.createElement是用来创建virtual Dom对象的。jsx会先被转化为Re
 
 Virtual DOM 对象的更新和比较仅发生在内存中，不会在视图中渲染任何内容，所以这一部分的性能损耗成本是微不足道的。
 
-<img :src="$withBase('/images/react/virtual/1.png')" alt="">
+<img :src="$withBase('/images/react/virtual/9.jpg')" alt="">
 
 ```jsx
 <div id="container">

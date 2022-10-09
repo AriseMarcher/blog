@@ -62,8 +62,8 @@ module.exports = {
     [
       "@vuepress-reco/vuepress-plugin-kan-ban-niang",
       {
-        theme: ["miku"],
-        // theme: 	['haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko', 'miku', 'z16'],
+        // theme: ["miku"],
+        theme: 	['haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko', 'miku', 'z16'],
         clean: true,
         modelStyle: {
           position: "fixed",
