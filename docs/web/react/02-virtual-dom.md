@@ -840,8 +840,7 @@ else if (
 
 在节点更新完成以后，如果旧节点对象的数量多于新 VirtualDOM 节点的数量，就说明有节点需要被删除。
 
-<img :src="$withBase('/images/react/virtual/5.png')" alt="" width="40%" align="left" />
-
+<img :src="$withBase('/images/react/virtual/5.png')" alt="" width="70%" />
 
 ```jsx
 // 获取就节点的数量
@@ -857,6 +856,10 @@ if (oldChildNodes.length > virtualDOM.children.length) {
   }
 }
 ```
+
+:::tip
+其实是在列表组件进行diff对比之后，又对子节点循环调用diff，所以此时new virtualDOM其实已经是新的数据了（替换了之前的old virtualDOM）中的子节点数据，那么当新的virtual子节点数据都渲染完成之后，此时老的子节点数量还大与当前新的子节点数量，那么此时就认为是“删除”操作（其实其中也包含了子节点相应的替换），这个时候只需要删除老的子节点相比于新的子节点最后那几个节点就行了！
+:::
 
 #### 9.4 类组件状态更新
 
