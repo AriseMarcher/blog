@@ -182,6 +182,104 @@ const after = {
 }
 ```
 
+:::tip
+当定义了 如
+```jsx
+const demo = <div>
+  <p className="class001">
+    这是内容一
+    <span>这是span的内容</span>
+  </p>
+  <p>这是内容二</p>
+</div>
+```
+createElement这个方法会一直调用，顺序为从最内层开始，如span、内容一、再内容二、最后才是外层的div
+
+```js
+// 最简单的createElement方法的返回
+export default function createElement (
+  type,
+  props,
+  ...children
+) {
+  console.log('===')
+  console.log(...children)
+  let obj = {
+    type,
+    props,
+    children
+  }
+  console.log('this is obj')
+  console.log(obj)
+  return {
+    type,
+    props,
+    children
+  }
+}
+```
+
+```js
+// babel转换的jsx为
+/*#__PURE__*/
+React.createElement(
+  "div",
+  null,
+  /*#__PURE__*/React.createElement(
+    "p",
+    {
+      className: "class001"
+    },
+    "\u8FD9\u662F\u5185\u5BB9\u4E00",
+    /*#__PURE__*/React.createElement(
+      "span",
+      null,
+      "\u8FD9\u662Fspan\u7684\u5185\u5BB9")
+  ),
+  /*#__PURE__*/React.createElement(
+    "p",
+    null,
+    "\u8FD9\u662F\u5185\u5BB9\u4E8C"
+  )
+);
+```
+
+最后生成的虚拟DOM就为：
+```json
+{
+  "type": "div",
+  "props": null,
+  "children": [
+    {
+      "type": "p",
+      "props": { "className": "class002" },
+      "children": [
+        ["这是内容一"],
+        {
+          "type": "span",
+          "props": null,
+          "children": [
+            {
+              "type": "span",
+              "props": null,
+              "children": ["这是span的内容"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "props": null,
+      "children": ["这是内容二"]
+    }
+  ]
+}
+```
+当时打debugger看createElement方法时，每次都调用就觉得很奇怪，主要是那种逻辑，每一个节点都会进入createElement方法返回相应的type,props,children，直到最后这个DOM完全解析后才会返回最后的虚拟DOM，此时它的children里面则都是子节点当时返回的那种对象格式了。
+
+:::
+
 ``` jsx
 /**
  * 创建 Virtual DOM
