@@ -33,7 +33,8 @@
       "collapsable": true,
       "children": [
         "react/01-base.md",
-        "react/02-virtual-dom.md"
+        "react/02-virtual-dom.md",
+        "react/03-fiber.md"
       ]
     },
     {

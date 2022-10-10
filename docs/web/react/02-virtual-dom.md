@@ -949,9 +949,14 @@ mountNativeElement 方法接收最新的 Virtual DOM 对象，如果这个 Virtu
 在 buildClassComponent 方法中为 Virtual DOM 对象添加 component 属性， 值为类组件的实例对象。
 
 ```jsx
-function buildClassComponent(virtualDOM) {
-  const component = new virtualDOM.type(virtualDOM.props)
+function buildClassComponent (virtualDOM) {
+  // 此处执行的就是构造函数 constructor
+  // 子类调用父类的构造函数 父类中存储了props
+  // 这样子类又继承自父类，就能通过this.props拿到父类中的属性和方法了
+  const component = new virtualDOM.type(virtualDOM.props || {})
   const nextVirtualDOM = component.render()
+
+  // 存储类的实例对象
   nextVirtualDOM.component = component
   return nextVirtualDOM
 }
@@ -1020,6 +1025,7 @@ setState(state) {
 在 diff 方法中判断要更新的 Virtual DOM 是否是组件，如果是组件又分为多种情况，新增 diffComponent 方法进行处理
 
 ```jsx
+// 该判断需要放在 !oldDOM判断之后 virtualDOM.type !== oldVirtualDOM.type && typeof virtualDOM !== 'function' 之前
 else if (typeof virtualDOM.type === "function") {
   // 要更新的是组件
   // 1) 组件本身的 virtualDOM 对象 通过它可以获取到组件最新的 props
