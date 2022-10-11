@@ -29,7 +29,8 @@
       "children": [
         "react/01-base.md",
         "react/02-virtual-dom.md",
-        "react/03-fiber.md"
+        "react/03-fiber.md",
+        "react/04-core-source-code.md"
       ]
     },
     {
