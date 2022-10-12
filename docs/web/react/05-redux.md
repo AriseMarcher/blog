@@ -198,59 +198,6 @@ root.render(
 2. 组件使用connect方法获取数据并将数据通过props传递进组件
 <img :src="$withBase('/images/react/redux/5.jpg')" alt="">
 
-代码示例：
-
-```js
-import React from "react"
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as counterActions from '../store/actions/counter.actions'
-
-function Counter ({count, increment, decrement}) {
-  return (
-    <div>
-      <button onClick={() => increment(5)}>+</button>
-      <span>{count}</span>
-      <button onClick={() => decrement(5)}>-</button>
-    </div>
-  )
-}
-
-/**
- * react-redux
- *  Provider 组件 将创建出来的Store放在一个全局组件能够拿到的地方
- *  connect 方法 订阅store 当store状态发生变化后重新渲染组件
- */
-
-
-// 1. connect 方法会帮助我们订阅store 当store中的状态发生更改的时候会帮助我们重新渲染组件
-// 2. connect 方法可以让我们获取store中的状态 将状态通过组件的props属性映射给组件
-// 3. connect 方法可以让我们获取dispatch方法
-// 4. connect 第一个参数 函数 state组件当中的状态
-// 4. connect 第二个参数 返回一个对象 定义什么都会映射到props中
-
-const mapStateToProps = state => ({
-  count: state.count,
-  a: "b"
-})
-
-// 变更后
-const mapDispatchToProps = dispatch => bindActionCreators(counterActions, dispatch)
-
-// 更变前
-// const mapDispatchToProps = dispatch => ({
-//   increment () {
-//     dispatch({ type: 'increment' })
-//   },
-//   decrement () {
-//     dispatch({ type: 'decrement' })
-//   }
-// })
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
-
-```
-
 组件使用connect方法获取数据并将数据通过props传递进组件
 
 ```js
@@ -307,6 +254,276 @@ export default (state, action) => {
   }
 }
 ```
+
+### 2.6 优化
+
+#### 2.6.1 使用 Action Creator函数(bindActionCreators)将触发Action的代码独立成函数
+
+在组件中通过调用<code>this.props.dispatch({type:'描述对数据进行怎么样的操作'})</code>方法触发action,会造成HTML模板在视觉上的混乱
+
+```js
+const { increment, decrement } = this.props
+<button onClick={increment}>增加</button>
+<button onClick={decrement}>减少</button>
+```
+
+```js
+const mapStateToProps = state => ({
+  count: state.count
+})
+
+const mapDispatchToProps = dispatch => ({
+  increment () {
+    dispatch({ type: 'increment' })
+  },
+  decrement () {
+    dispatch({ type: 'decrement' })
+  }
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(组件名称)
+```
+
+#### 2.6.2 Action Creators函数绑定
+
+触发action的函数，内部代码重复率非常高，所以React提供了方法帮我们生成这些函数，代替开发者手写
+
+```js
+// store/actions/counter.actions.js
+export const increment = () => ({ type: 'increment' })
+export const decrement = () => ({ type: 'decrement' })
+
+// 在组件中
+import { bindActionCreators } from 'redux'
+import * as counterActions from '../store/actions/counter.action'
+const mapDispatchToProps = dispatch => ({
+  ...bindActionCreators(counterActions, dispatch)
+})
+```
+
+#### 2.6.3 将Action类型字符串独立成常量
+
+Action类型字符串组件在触发Action时需要使用，Reducer在接受Action时也需要使用，由于字符串不存在代码提示，存在写错的风险，所以要将它独立成常量.
+
+#### 2.6.4 拆分Reducer
+
+当腰管理的数据越来越多时，reducer中的代码会变得越来越大.React允许将一个大的reduce拆分成若干个小的reducer，最后进行合并使用
+
+最后的代码代码示例：
+
+```
+|- src
+  |- components
+    |- Counter.js
+    |- Modal.js
+  |- store
+    |- actions
+      |- counter.actions.js
+      |- modal.action.js
+    |- const
+      |- counter.const.js
+      |- modal.const.js
+    |- reducers
+      |- counter.reducer.js
+      |- modal.reducer.js
+      |- root.reducer.js
+    index.js
+```
+
+##### components
+###### Counter.js
+```js
+import React from "react"
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as counterActions from '../store/actions/counter.actions'
+
+function Counter ({count, increment, decrement}) {
+  return (
+    <div>
+      <button onClick={() => increment(5)}>+</button>
+      <span>{count}</span>
+      <button onClick={() => decrement(5)}>-</button>
+    </div>
+  )
+}
+
+/**
+ * react-redux
+ *  Provider 组件 将创建出来的Store放在一个全局组件能够拿到的地方
+ *  connect 方法 订阅store 当store状态发生变化后重新渲染组件
+ */
+
+
+// 1. connect 方法会帮助我们订阅store 当store中的状态发生更改的时候会帮助我们重新渲染组件
+// 2. connect 方法可以让我们获取store中的状态 将状态通过组件的props属性映射给组件
+// 3. connect 方法可以让我们获取dispatch方法
+// 4. connect 第一个参数 函数 state组件当中的状态
+// 4. connect 第二个参数 返回一个对象 定义什么都会映射到props中
+
+const mapStateToProps = state => ({
+  count: state.counter.count
+})
+
+// 变更后
+const mapDispatchToProps = dispatch => bindActionCreators(counterActions, dispatch)
+
+// 更变前
+// const mapDispatchToProps = dispatch => ({
+//   increment () {
+//     dispatch({ type: 'increment' })
+//   },
+//   decrement () {
+//     dispatch({ type: 'decrement' })
+//   }
+// })
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+```
+
+###### Modal.js
+
+```js
+import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as modalActions from '../store/actions/modal.action'
+
+function Modal ({ showStatus, isShow, isHide }) {
+  const styles = {
+    width: 200,
+    height: 200,
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    marginLeft: -100,
+    marginTop: -100,
+    backgroundColor: 'skyblue',
+    display: showStatus ? 'block' : 'none'
+  }
+  
+  return <div>
+    <button onClick={isShow}>显示</button>
+    <button onClick={isHide}>隐藏</button>
+    <div style={styles}></div>
+  </div>
+}
+
+const mapStateToProps = state => ({
+  showStatus: state.modal.showStatus
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators(modalActions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+```
+
+##### actions
+
+```js
+// counter.actions.js
+import { DECREMENT, INCREMENT } from "../const/counter.const"
+
+export const increment = payload => ({ type: INCREMENT, payload })
+export const decrement = payload => ({ type: DECREMENT, payload })
+
+// modal.action.js
+import { ISHIDEMODAL, ISSHOWMODAL } from "../const/modal.const"
+
+export const isShow = () => ({ type: ISSHOWMODAL })
+export const isHide = () => ({ type: ISHIDEMODAL })
+```
+
+##### const
+
+```js
+// counter.const.js
+export const INCREMENT = 'increment'
+export const DECREMENT = 'decrement'
+
+// modal.const.js
+export const ISSHOWMODAL = 'isShowModal'
+export const ISHIDEMODAL = 'isHideModal'
+```
+
+##### reducers
+
+###### counter.reducer.js
+```js
+import { DECREMENT, INCREMENT } from "../const/counter.const"
+
+const initialState = {
+  count: 0
+}
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default (state = initialState, action) => {
+  switch(action.type) {
+    case INCREMENT:
+      return {
+        ...state,
+        count: state.count + action.payload,
+      }
+    case DECREMENT:
+      return {
+        ...state,
+        count: state.count -  action.payload,
+      };
+    default: 
+      return state
+  }
+}
+```
+
+###### modal.reducer.js
+```js
+import { ISSHOWMODAL, ISHIDEMODAL } from "../const/modal.const"
+
+const initialState = {
+  showStatus: false
+}
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default (state = initialState, action) => {
+  switch(action.type) {
+    case ISSHOWMODAL:
+      return {
+        ...state,
+        showStatus: true,
+      }
+    case ISHIDEMODAL:
+      return {
+        ...state,
+        showStatus: false,
+      }
+    default: 
+      return state
+  }
+}
+```
+
+###### root.reducer.js
+```js
+import { combineReducers } from 'redux'
+
+import CounterReducer from './counter.reducer'
+import ModalReducer from './modal.reducer'
+
+// { counter: { count: 0 } , modal: { showStatus: false } }
+export default combineReducers({
+  counter: CounterReducer,
+  modal: ModalReducer
+})
+```
+
+##### index.js
+```js
+import { createStore } from 'redux'
+import RootReducer from './reducers/root.reducer'
+
+export const store = createStore(RootReducer)
+```
+
 
 
 ## Redux中间件
