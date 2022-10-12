@@ -289,7 +289,7 @@ export default connect(mapStateToProps,mapDispatchToProps)(组件名称)
 触发action的函数，内部代码重复率非常高，所以React提供了方法帮我们生成这些函数，代替开发者手写
 
 ```js
-// store/actions/counter.actions.js
+// store/actions/counter.action.js
 export const increment = () => ({ type: 'increment' })
 export const decrement = () => ({ type: 'decrement' })
 
@@ -319,7 +319,7 @@ Action类型字符串组件在触发Action时需要使用，Reducer在接受Acti
     |- Modal.js
   |- store
     |- actions
-      |- counter.actions.js
+      |- counter.action.js
       |- modal.action.js
     |- const
       |- counter.const.js
@@ -337,7 +337,7 @@ Action类型字符串组件在触发Action时需要使用，Reducer在接受Acti
 import React from "react"
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as counterActions from '../store/actions/counter.actions'
+import * as counterActions from '../store/actions/counter.action'
 
 function Counter ({count, increment, decrement}) {
   return (
@@ -422,7 +422,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Modal);
 ##### actions
 
 ```js
-// counter.actions.js
+// counter.action.js
 import { DECREMENT, INCREMENT } from "../const/counter.const"
 
 export const increment = payload => ({ type: INCREMENT, payload })
@@ -620,5 +620,195 @@ export const increment_async = payload => dispatch => {
 
 
 ## 4 Redux常用中间件
+
+### 4.1 redux-thunk
+:::tip
+允许在redux工作流程中加入异步代码
+:::
+
+#### 下载
+`npm install redux-thunk`
+
+#### 引入
+```js
+import thunk from 'redux-thunk'
+
+```
+
+#### 注册
+
+```js
+import { applyMiddleware } from 'redux'
+
+createStore(rootReducer, applyMiddleware(thunk))
+```
+
+#### 使用redux-thunk中间件
+```js
+const loadPosts = () => async dispatch => {
+  const post = await axiod.get('/api/posts').then(response => response.data)
+  dispatch({ type: LOADPOSTSSUCCESS, payload: posts })
+}
+```
+
+### 4.2 redux-sage
+:::tip
+允许在redux中加入异步代码，相比于redux-thunk更加的强大
+:::
+
+#### 4.2.1 redux-sage解决的问题
+
+redux-saga可以将异步操作从Action Creator文件中抽离出来，放在一个单独的文件中
+
+#### 4.2.2 redux-saga 下载
+`npm install redux-saga`
+
+#### 4.2.3 创建 redux-saga 中间件
+```js
+import createSagaMiddleware from 'redux-saga'
+// 中间件需要调用方法得到
+const sageMiddleware = createSagaMiddleware()
+```
+
+#### 4.2.4 注册 sagaMiddleware
+```js
+createStore(reducer, applyMiddleware(sageMiddleware))
+```
+#### 4.2.5 使用saga接受action执行异步操作
+```js
+// takeEvery 用来接受action的类型字符串
+// put 用来触发另外一个action 当异步操作返回结果以后 需要通过put方法去触发一个action 帮助把异步操作的结果返回给action 跟dispatch作用是一样的
+import { takeEvery, put } from 'redux-sage/effects'
+
+function* load_posts () {
+  // 异步请求数据
+  const { data } = yield axios.get('/api/posts.json')
+  // 触发一个action 并且把数据传递给action，让action把该数据传递给reducer，让reducer将数据保存到store中
+  yield put(load_posts_success(data))
+}
+
+// 要求默认导出一个 generator 函数
+export default function* postSaga () {
+  // 1. action的类型字符串
+  // 2. 接受到后需要处理的函数
+  yield takeEvery(LOAD_POSTS, load_posts)
+}
+```
+
+#### 4.2.6 启动saga
+
+```js
+import postSaga from './store/sagas/post.sage'
+sagaMiddleware.run(postSaga)
+```
+
+#### 代码示例
+|- src
+  |- components
+    |- Counter.js
+  |- store
+    |- actions
+      |- counter.action.js
+    |- const
+      |- counter.const.js
+    |- sagas
+      |- counter.saga.js
+    |- index.js
+
+##### component/Counter.js
+```js
+import React from "react"
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as counterActions from '../store/actions/counter.action'
+
+function Counter ({
+  count,
+  increment,
+  decrement,
+  increment_async
+}) {
+  return (
+    <div>
+      <button onClick={() => increment_async(20)}>+</button>
+      <span>{count}</span>
+      <button onClick={() => decrement(5)}>-</button>
+    </div>
+  )
+}
+
+const mapStateToProps = state => ({
+  count: state.counter.count
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators(counterActions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+```
+
+##### store/actions/counter.action.js
+```js
+import { DECREMENT, INCREMENT, INCREMENT_ASYNC } from "../const/counter.const"
+
+export const increment = payload => ({ type: INCREMENT, payload })
+export const decrement = payload => ({ type: DECREMENT, payload })
+
+// 之前的redux-thunk
+// export const increment_async = payload => dispatch => {
+//   setTimeout(() => {
+//     dispatch(increment(payload))
+//   }, 2000)
+// }
+
+// export const increment_async = () => ({ type: INCREMENT_ASYNC })
+export const increment_async = payload => ({ type: INCREMENT_ASYNC, payload })
+
+```
+##### store/const/counter.const.js
+```js
+export const INCREMENT = 'increment'
+export const DECREMENT = 'decrement'
+export const INCREMENT_ASYNC = 'increment_async'
+```
+
+##### store/sagas/counter.saga.js
+```js
+import { takeEvery, put, delay } from 'redux-saga/effects'
+import { increment, increment_async } from '../actions/counter.action'
+import { INCREMENT_ASYNC } from '../const/counter.const'
+
+// takeEvery 接受 action
+// put 触发 action
+
+function* increment_async_fn (action) {
+  // 延迟 2s 不能用 setTimeout
+  yield delay(2000)
+
+  // 点击加10
+  yield put(increment(action.payload))
+}
+
+export default function *  counterSaga() {
+  // 接受 action 的类型字符串
+  yield takeEvery(INCREMENT_ASYNC, increment_async_fn)
+}
+```
+
+##### store/index.js
+```js
+import { createStore, applyMiddleware } from 'redux'
+import RootReducer from './reducers/root.reducer'
+import createSagaMiddleware from 'redux-saga'
+import counterSage from './sagas/counter.saga'
+
+// 创建 sagaMiddleware
+const sagaMiddleware = createSagaMiddleware()
+
+export const store = createStore(RootReducer, applyMiddleware(sagaMiddleware))
+
+// 启动 counterSaga
+sagaMiddleware.run(counterSage)
+
+```
 
 ## 5 Redux综合案例
