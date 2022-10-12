@@ -706,17 +706,23 @@ sagaMiddleware.run(postSaga)
 |- src
   |- components
     |- Counter.js
+    |- Modal.js
   |- store
     |- actions
       |- counter.action.js
+      |- modal.action.js
     |- const
       |- counter.const.js
+      |- modal.const.js
     |- sagas
       |- counter.saga.js
+      |- modal.saga.js
+      |- root.saga.js
     |- index.js
 
-##### component/Counter.js
+##### component
 ```js
+// component/Counter.js
 import React from "react"
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -746,33 +752,88 @@ const mapDispatchToProps = dispatch => bindActionCreators(counterActions, dispat
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 ```
 
-##### store/actions/counter.action.js
 ```js
+// component/Modal.js
+import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as modalActions from '../store/actions/modal.action'
+
+function Modal ({
+  showStatus,
+  isShow,
+  isHide,
+  isShow_async,
+  show_async
+}) {
+  const styles = {
+    width: 200,
+    height: 200,
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    marginLeft: -100,
+    marginTop: -100,
+    backgroundColor: 'skyblue',
+    display: showStatus ? 'block' : 'none'
+  }
+  
+  return <div>
+    <button onClick={show_async}>显示</button>
+    <button onClick={isHide}>隐藏</button>
+    <div style={styles}></div>
+  </div>
+}
+
+const mapStateToProps = state => ({
+  showStatus: state.modal.showStatus
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators(modalActions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+
+```
+
+##### store/actions
+```js
+// counter.action.js
 import { DECREMENT, INCREMENT, INCREMENT_ASYNC } from "../const/counter.const"
 
 export const increment = payload => ({ type: INCREMENT, payload })
 export const decrement = payload => ({ type: DECREMENT, payload })
 
-// 之前的redux-thunk
-// export const increment_async = payload => dispatch => {
-//   setTimeout(() => {
-//     dispatch(increment(payload))
-//   }, 2000)
-// }
-
-// export const increment_async = () => ({ type: INCREMENT_ASYNC })
 export const increment_async = payload => ({ type: INCREMENT_ASYNC, payload })
 
 ```
-##### store/const/counter.const.js
+
 ```js
+// modal.action.js
+import { ISHIDEMODAL, ISSHOWMODAL, SHOWMODALASYNC } from "../const/modal.const"
+
+export const isShow = () => ({ type: ISSHOWMODAL })
+export const isHide = () => ({ type: ISHIDEMODAL })
+
+export const show_async = () => ({ type: SHOWMODALASYNC })
+
+```
+
+##### store/const
+```js
+// counter.const.js
 export const INCREMENT = 'increment'
 export const DECREMENT = 'decrement'
 export const INCREMENT_ASYNC = 'increment_async'
 ```
-
-##### store/sagas/counter.saga.js
 ```js
+export const ISSHOWMODAL = 'isShowModal'
+export const ISHIDEMODAL = 'isHideModal'
+export const SHOWMODALASYNC = 'showModal_async'
+```
+
+##### store/sagas
+```js
+// counter.saga.js
 import { takeEvery, put, delay } from 'redux-saga/effects'
 import { increment, increment_async } from '../actions/counter.action'
 import { INCREMENT_ASYNC } from '../const/counter.const'
@@ -794,12 +855,42 @@ export default function *  counterSaga() {
 }
 ```
 
+```js
+// modal.saga.js
+import { takeEvery, put, delay } from 'redux-saga/effects'
+import { isShow } from '../actions/modal.action'
+import { SHOWMODALASYNC } from '../const/modal.const'
+
+function* showModal_async_fn(action) {
+  yield delay(2000)
+  yield put(isShow())
+}
+
+export default function* modalSaga () {
+  yield takeEvery(SHOWMODALASYNC, showModal_async_fn)
+}
+```
+
+```js
+import { all } from 'redux-saga/effects'
+import counterSaga from './counter.saga'
+import modalSaga from './modal.saga'
+
+// eslint-disable-next-line require-yield
+export default function* rootSaga () {
+  yield all([
+    counterSaga(),
+    modalSaga(),
+  ])
+}
+```
+
 ##### store/index.js
 ```js
 import { createStore, applyMiddleware } from 'redux'
 import RootReducer from './reducers/root.reducer'
 import createSagaMiddleware from 'redux-saga'
-import counterSage from './sagas/counter.saga'
+import rootSaga from './sagas/root.saga'
 
 // 创建 sagaMiddleware
 const sagaMiddleware = createSagaMiddleware()
@@ -807,8 +898,7 @@ const sagaMiddleware = createSagaMiddleware()
 export const store = createStore(RootReducer, applyMiddleware(sagaMiddleware))
 
 // 启动 counterSaga
-sagaMiddleware.run(counterSage)
-
+sagaMiddleware.run(rootSaga)
 ```
 
 ## 5 Redux综合案例
