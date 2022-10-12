@@ -210,18 +210,18 @@ export default connect(mapStateToProps)(组件名称)
 
 #### 2.5.3. 组件更改Store中的数据
 
-3.1 定义 action （action是改变状态的唯一途径）
+1 定义 action （action是改变状态的唯一途径）
 ```js
 { type: '描述对数据要进行什么要的操作' }
 ```
 
-3.2 组件触发 action
+2 组件触发 action
 
 ```js
 this.props.dispatch({ type: '描述对数据要进行什么要的操作' })
 ```
 
-3.3 reducer 接受action,针对 action 对数据进行处理并返回
+3 reducer 接受action,针对 action 对数据进行处理并返回
 
 ```js
 const initialState = { count: 0 }
@@ -241,7 +241,7 @@ const reducer = (state = initialState, action) => {
 ```js
 <button onClick={() => increment(5)}>增加按钮</button>
 ```
-2. 接受参数，传递 reducer
+2. 接受参数，传递给 reducer
 ```js
 export const increment = payload => ({ type: INCREMENT, payload })
 ```
@@ -257,7 +257,7 @@ export default (state, action) => {
 
 ### 2.6 优化
 
-#### 2.6.1 使用 Action Creator函数(bindActionCreators)将触发Action的代码独立成函数
+#### 2.6.1 使用 Action Creator函数将触发Action的代码独立成函数
 
 在组件中通过调用<code>this.props.dispatch({type:'描述对数据进行怎么样的操作'})</code>方法触发action,会造成HTML模板在视觉上的混乱
 
@@ -307,11 +307,12 @@ Action类型字符串组件在触发Action时需要使用，Reducer在接受Acti
 
 #### 2.6.4 拆分Reducer
 
-当腰管理的数据越来越多时，reducer中的代码会变得越来越大.React允许将一个大的reduce拆分成若干个小的reducer，最后进行合并使用
+当需要管理的数据越来越多时，reducer中的代码会变得越来越大.React允许将一个大的reduce拆分成若干个小的reducer，最后进行合并使用
 
 最后的代码代码示例：
 
 ```
+<!-- 目录结构部分 -->
 |- src
   |- components
     |- Counter.js
