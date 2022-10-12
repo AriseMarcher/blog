@@ -527,8 +527,62 @@ export const store = createStore(RootReducer)
 
 
 
-## Redux中间件
+## 3 Redux中间件
 
-## Redux常用中间件
+### 3.1 何为中间件？
+中间件本身是一个函数，允许我们扩展redux应用程序
 
-## Redux综合案例
+### 3.2 中间件流程图
+
+<img :src="$withBase('/images/react/redux/6.jpg')" alt="">
+
+### 3.3 开发 Redux 中间件
+
+中间件开发的模板代码
+
+柯里化形式的函数
+```js
+export default store => next => action = {  }
+```
+要求返回一个函数，再返回一个函数
+
+action: 组件触发的action对象,通过对action.type决定是否对它处理
+next: 中间件处理完毕后需要调用next将其传递给下一个中间件在传递给reducer，可以存在多个中间件
+
+### 3.4 注册中间件
+
+只有把开发好的中间件注册给store，才能生效
+
+```js
+import { createStore, applyMiddleware } from 'redux'
+// 自己开发的中间件
+import logger from './middleware/logger'
+import test from './middleware/test'
+
+createStore(reducer, applyMiddleware(
+  logger,
+  test
+))
+```
+
+```js
+// middleware/logger.js
+export default store => next => action => {
+  // 我需要打印下 action 的信息
+  console.log(store)
+  console.log(action)
+  next(action)
+}
+
+// middleware/test.js
+// eslint-disable-next-line import/no-anonymous-default-export
+export default store => next => action => {
+  console.log('test 中间件')
+  next(action)
+}
+```
+
+
+## 4 Redux常用中间件
+
+## 5 Redux综合案例
