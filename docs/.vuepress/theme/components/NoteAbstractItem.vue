@@ -29,9 +29,9 @@ import PageInfo from './PageInfo'
 export default defineComponent({
   components: { PageInfo, RecoIcon },
   props: ['item', 'currentPage', 'currentTag'],
-  mounted() {
-    console.log(this.item)
-  }
+  // mounted() {
+  //   console.log(this.item)
+  // }
 })
 </script>
 
