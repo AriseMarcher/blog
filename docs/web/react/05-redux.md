@@ -703,6 +703,7 @@ sagaMiddleware.run(postSaga)
 ```
 
 #### 代码示例
+```
 |- src
   |- components
     |- Counter.js
@@ -719,6 +720,7 @@ sagaMiddleware.run(postSaga)
       |- modal.saga.js
       |- root.saga.js
     |- index.js
+```
 
 ##### component
 ```js
