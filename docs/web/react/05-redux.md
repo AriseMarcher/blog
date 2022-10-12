@@ -26,9 +26,9 @@ const state = {
 
 + [官网](https://cn.redux.js.org/)
 + CDN
-  ```
+  `
   <script src="https://cdn.bootcdn.net/ajax/libs/redux/4.2.0/redux.js"></script>
-  ```
+  `
 
 ### Redux核心概念及工作流程
 
@@ -128,6 +128,33 @@ store.dispatch({ type: 'description...' })
 ```
 
 ## React + Redux
+
+### 缺点
+
+在React中组件通信的数据流是单向的, 顶层组件可以通过props属性向下层组件传递数据, ⽽下层
+组件不能向上层组件传递数据, 要实现下层组件修改数据, 需要上层组件传递修改数据的⽅法到下层
+组件. 当项⽬越来越⼤的时候, 组件之间传递数据变得越来越困难
+
+<img :src="$withBase('/images/react/redux/2.jpg')" alt="">
+
+### 优点
+
+使⽤Redux管理数据，由于Store独⽴于组件，使得数据管理独⽴于组件，解决了组件与组件之间传递数据困难的问题。
+
+<img :src="$withBase('/images/react/redux/3.jpg')" alt="">
+
+### 下载 Redux
+
+`npm install redux react-redux`
+
+### Redux工作流程
+
+1. 组件通过dispatch方法触发Action
+2. Store接受Action并将Action分发给Reducer
+3. Reducer根据Action类型对状态进行更改并将更改后的状态返回给Store
+4. 组件订阅了Store的状态，Store中的状态更新会同步到组件
+
+<img :src="$withBase('/images/react/redux/4.jpg')" alt="">
 
 ## Redux中间件
 
