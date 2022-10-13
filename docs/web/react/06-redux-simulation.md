@@ -511,3 +511,41 @@ function compose () {
 </script>
 </html>
 ```
+
+### redux bindActionCreators
+```js
+function bindActionCreators (actionCreators, dispatch) {
+  var boundActionCreators = {}
+
+  for (var key in actionCreators) {
+    (function (key) {
+      boundActionCreators[key] = function () {
+        dispatch(actionCreators[key]())
+      }
+    })(key)
+  }
+  return boundActionCreators
+}
+
+// 使用
+// bindActionCreators 是将 actionCreators 转换成可以触发action的函数
+var actions = bindActionCreators({increment, decrement}, store.dispatch)
+console.log(actions)
+function increment () {
+  return { type: 'increment' }
+}
+function decrement () {
+  return { type: 'decrement' }
+}
+document.getElementById('increment').onclick = function () {
+  // logger -> thunk -> reducer
+  // 这是之前的
+  // store.dispatch({ type: 'increment' })
+  // 这是修改之后的
+  actions.increment()
+}
+document.getElementById('decrement').onclick = function () {
+  // store.dispatch({ type: 'decrement' })
+  actions.decrement()
+}
+```
