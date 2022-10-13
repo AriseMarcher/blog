@@ -1080,4 +1080,3 @@ export default createReducer({
 ```
 ##### src/reducers/modal.reducer.js (该文件并未改动)
 ##### src/reducers/root.reducer.js (该文件并未改动)
-## 5 Redux综合案例
