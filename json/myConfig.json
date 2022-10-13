@@ -31,7 +31,8 @@
         "react/02-virtual-dom.md",
         "react/03-fiber.md",
         "react/04-core-source-code.md",
-        "react/05-redux.md"
+        "react/05-redux.md",
+        "react/06-redux-simulation.md"
       ]
     },
     {
