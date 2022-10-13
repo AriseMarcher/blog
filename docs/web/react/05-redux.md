@@ -702,7 +702,7 @@ import postSaga from './store/sagas/post.sage'
 sagaMiddleware.run(postSaga)
 ```
 
-#### 代码示例
+##### 代码示例
 ```
 |- src
   |- components
@@ -715,6 +715,10 @@ sagaMiddleware.run(postSaga)
     |- const
       |- counter.const.js
       |- modal.const.js
+    |- reducers
+      |- counter.reducer.js
+      |- modal.reducer.js
+      |- root.reducer.js
     |- sagas
       |- counter.saga.js
       |- modal.saga.js
@@ -833,6 +837,60 @@ export const ISHIDEMODAL = 'isHideModal'
 export const SHOWMODALASYNC = 'showModal_async'
 ```
 
+##### store/reducers
+```js
+// counter.reducer.js
+import { DECREMENT, INCREMENT } from "../const/counter.const"
+
+const initialState = {
+  count: 0
+}
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default (state = initialState, action) => {
+  switch(action.type) {
+    case INCREMENT:
+      return {
+        ...state,
+        count: state.count + action.payload,
+      }
+    case DECREMENT:
+      return {
+        ...state,
+        count: state.count -  action.payload,
+      };
+    default: 
+      return state
+  }
+}
+```
+```js
+// modal.reducer.js
+import { ISSHOWMODAL, ISHIDEMODAL } from "../const/modal.const"
+
+const initialState = {
+  showStatus: false
+}
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default (state = initialState, action) => {
+  switch(action.type) {
+    case ISSHOWMODAL:
+      return {
+        ...state,
+        showStatus: true,
+      }
+    case ISHIDEMODAL:
+      return {
+        ...state,
+        showStatus: false,
+      }
+    default: 
+      return state
+  }
+}
+```
+
 ##### store/sagas
 ```js
 // counter.saga.js
@@ -903,4 +961,123 @@ export const store = createStore(RootReducer, applyMiddleware(sagaMiddleware))
 sagaMiddleware.run(rootSaga)
 ```
 
+### 4.3 redux-action
+
+#### 4.3.1 redux-action解决的问题
+
+redux流程中大量的样板代码读写很痛苦，使用redux-actions可以简化Action和Reducer的处理
+
+抽离常量、switch action的type，action creator函数等都是样板代码
+
+#### 4.3.2 redux-actions下载
+`npm install redux-actions`
+
+#### 4.3.3 创建Action
+
+```js
+import { createAction } from 'redux-action'
+
+const increment_action = createAction('increment')
+const decrement_action = createAction('decrement')
+```
+
+#### 4.3.4 创建Reducer
+```js
+import { handleActions as createReducer } from 'redux-actions'
+import { increment_action, decrement_action } from '../action/counter.action'
+
+const initialState = { count: 0 }
+const counterReducer = createReducer({
+  [increment_action]: (state, action) => ({ count: state.count +1 }),
+  [decrement_action]: (state, action) => ({ count: state.count - 1 })
+}, initialState)
+export default counterReducer
+```
+
+#### 4.3.5 代码示例（有些混杂着saga，但并不影响，主要Counter相关的就行了）
+
+```
+|- src
+  |- components
+    |- Counter.js
+    |- Modal.js
+  |- store
+    |- actions
+      |- counter.action.js
+      |- modal.action.js
+    |- const
+      |- counter.const.js
+      |- modal.const.js
+    |- reducers
+      |- counter.reducer.js
+      |- modal.reducer.js
+      |- root.reducer.js
+    |- sagas
+      |- counter.saga.js
+      |- modal.saga.js
+      |- root.saga.js
+    |- index.js
+```
+
+##### src/components/Counter.js
+```js
+import React from "react"
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as counterActions from '../store/actions/counter.action'
+
+function Counter ({
+  count,
+  increment,
+  decrement,
+}) {
+  return (
+    <div>
+      <button onClick={() => increment(10)}>+</button>
+      <span>{count}</span>
+      <button onClick={() => decrement(10)}>-</button>
+    </div>
+  )
+}
+
+const mapStateToProps = state => ({
+  count: state.counter.count
+})
+
+// 变更后
+const mapDispatchToProps = dispatch => bindActionCreators(counterActions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+```
+##### src/components/Modal.js (该文件并未改动)
+##### src/store/actions/counter.action.js
+```js
+// 此处是用了 createAction 去一个个创建 也有 createActions 方法
+import { createAction } from 'redux-actions'
+
+export const increment = createAction('increment')
+export const decrement = createAction('decrement')
+
+```
+##### src/store/actions/modal.action.js (该文件并未改动)
+##### src/reducers/counter.reducer.js
+```js
+import { handleActions as createReducer } from 'redux-actions'
+import { increment, decrement } from '../actions/counter.action'
+
+const initialState = {
+  count: 0
+}
+
+const handleIncrement = (state, action) => ({ count: state.count + action.payload })
+const handleDecrement = (state, action) => ({ count: state.count - action.payload })
+
+export default createReducer({
+  [increment]: handleIncrement,
+  [decrement]: handleDecrement,
+}, initialState)
+
+```
+##### src/reducers/modal.reducer.js (该文件并未改动)
+##### src/reducers/root.reducer.js (该文件并未改动)
 ## 5 Redux综合案例
