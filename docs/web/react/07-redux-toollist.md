@@ -98,3 +98,20 @@ function Todos () {
   )
 }
 ```
+
+#### Action预处理
+
+当Action被触发后，可以通过prepare方法对Action进行预处理，处理完成后交给Reducer.prepare方法必须返回对象
+
+```js
+reducers: {
+  addTodo: {
+    reducer: (state, action) => {
+      state.push(action.payload)
+    },
+    prepare: todo => {
+      return { payload: { ...todo, title: 'the Title' } }
+    }
+  }
+}
+```
