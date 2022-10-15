@@ -66,3 +66,35 @@ export default configureStore({
   devTools: process.env.NODE_ENV !== 'production'
 })
 ```
+
+#### 配置 Provider
+```js
+import ReactDOM from 'react-dom'
+import App from './App'
+import { Provider } from 'react-redux'
+import store from './store'
+
+ReactDOM.render(
+  <Provider>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+```
+
+#### 在组件中触发Action，获取状态
+```js
+import { useDispatch, useSelector } from 'react-redux'
+import { addTodo, TODOS_FEATURE_KEY } from '../../Store/todos.slice'
+
+function Todos () {
+  const dispatch = useDispatch()
+  const todos = useSelector(state => state[TODOS_FEATURE_KEY])
+
+  return (
+    <div>
+      <button onClick={() => dispatch(addTodo({id: 999, title: '测试任务'}))}></button>
+    </div>
+  )
+}
+```
