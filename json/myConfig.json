@@ -33,7 +33,8 @@
         "react/04-core-source-code.md",
         "react/05-redux.md",
         "react/06-redux-simulation.md",
-        "react/07-redux-toolkit.md"
+        "react/07-redux-toolkit.md",
+        "react/08-mobx.md"
       ]
     },
     {
