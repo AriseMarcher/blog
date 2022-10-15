@@ -106,7 +106,7 @@ module.exports = {
           autoplay: true,
           lrcType: 3,
         },
-        defaultCover: 'https://nyakku.moe/avatar.jpg',
+        defaultCover: 'https://p2.music.126.net/z3ET8GHJCa3ajuQs0j7P3Q==/109951165681566296.jpg?param=130y130',
       },
     ],
     [
