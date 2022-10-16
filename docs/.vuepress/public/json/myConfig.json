@@ -39,7 +39,8 @@
         "react/05-redux.md",
         "react/06-redux-simulation.md",
         "react/07-redux-toolkit.md",
-        "react/08-mobx.md"
+        "react/08-mobx.md",
+        "react/09-hooks.md"
       ]
     },
     {
