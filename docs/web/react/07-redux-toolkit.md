@@ -8,19 +8,19 @@ categories:
  - react
 ---
 
-## 概述
+### 1. 概述
 
 对Redux进行的二次封装，用于高效Redux开发，使Redux的使用变得简单
 
 [传送门](https://cn.redux.js.org/redux-toolkit/overview)
 
-### 状态切片
+### 2. 状态切片
 
 对于状态切换，可以认为它就是原本Redux中的那一个个小的Reducer函数
 
 在Redux中，原本Reducer函数和Action对象需要分别创建，现在通过状态切片替代，它会返回Reducer函数和Action对象
 
-#### 创建状态切片
+1. 创建状态切片
 
 ```js
 import { createSlice } from '@reduxjs/toolkit'
@@ -28,7 +28,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const { reducer: TodosReducer, actions } = createSlice()
 ```
 
-配置 crateSlice
+2. 配置 crateSlice
 
 ```js
 export const TODOS_FEATURE_KEY = "todos"
@@ -44,7 +44,7 @@ createSlice({
 })
 ```
 
-导出代码
+3. 导出代码
 
 ```js
 const { reducer: TodosReducer, actions } = createSlice()
@@ -53,7 +53,7 @@ export const { addTodo } = actions
 export default TodoReducer
 ```
 
-#### 创建 Store
+### 3. 创建 Store
 
 ```js
 import { configureStore } from '@reduxjs/toolkit'
@@ -67,7 +67,7 @@ export default configureStore({
 })
 ```
 
-#### 配置 Provider
+### 4. 配置 Provider
 ```js
 import ReactDOM from 'react-dom'
 import App from './App'
@@ -82,7 +82,7 @@ ReactDOM.render(
 )
 ```
 
-#### 在组件中触发Action，获取状态
+### 6. 在组件中触发Action，获取状态
 ```js
 import { useDispatch, useSelector } from 'react-redux'
 import { addTodo, TODOS_FEATURE_KEY } from '../../Store/todos.slice'
@@ -99,9 +99,9 @@ function Todos () {
 }
 ```
 
-#### Action预处理
+### 7. Action预处理
 
-当Action被触发后，可以通过prepare方法对Action进行预处理，处理完成后交给Reducer.prepare方法必须返回对象
+1. 当Action被触发后，可以通过prepare方法对Action进行预处理，处理完成后交给Reducer.prepare方法必须返回对象
 
 ```js
 reducers: {
@@ -116,8 +116,9 @@ reducers: {
 }
 ```
 
-#### 执行异步操作一：
-#####  创建执行异步操作的Action创建函数
+2. 执行异步操作一：
+
+2.1 创建执行异步操作的Action创建函数
 
 ```js
 import { createSlice, craeteAsyncThunk } from '@reduxjs/toolkit'
@@ -133,7 +134,7 @@ export const loadTodos = createAsyncThunk(
 )
 ```
 
-##### 创建接受异步操作结果的Reducer
+2.2 创建接受异步操作结果的Reducer
 ```js
 const { reducer: TodosReducer, actions } = createSlice({
   reducer: {
@@ -144,7 +145,7 @@ const { reducer: TodosReducer, actions } = createSlice({
 })
 ```
 
-##### 在组件中触发Action
+2.3 在组件中触发Action
 
 ```js
 function Todos() {
@@ -155,8 +156,9 @@ function Todos() {
 }
 ```
 
-#### 执行异步操作二
-##### 创建执行异步操作的Action创建函数
+3. 执行异步操作二
+
+3.1创建执行异步操作的Action创建函数
 ```js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
@@ -166,7 +168,8 @@ export const loadTodos = createAsyncThunk("todos/loadTodos", payload => {
 })
 ```
 
-##### 创建接受异步操作结果的Reducer
+3.2 创建接受异步操作结果的Reducer
+
 ```js
 createSlice({
   extraReduces: {
@@ -177,7 +180,7 @@ createSlice({
 })
 ```
 
-#### 配置中间件
+### 8. 配置中间件
 
 `npm i redux-logger`
 
@@ -191,7 +194,7 @@ export default configureStore({
 })
 ```
 
-#### 实体适配器
+### 9. 实体适配器
 
 将状态放入实体适配器，实体适配器提供操作状态的各种方法，简化操作
 
@@ -217,7 +220,7 @@ const todos = useSelector(state => state.todos.entities)
 </ul>
 ```
 
-#### 实体适配器简化
+1. 实体适配器简化
 
 代码简化，实体操作方法的第一个参数为state,第二个参数为action,内部会自动将对数据进行操作，比如对与addOne方法，它会自动将action.payload添加到state中
 
@@ -230,15 +233,15 @@ extraReducers: {
 }
 ```
 
-实体适配器要求每一个实体必须拥有id属性作为唯一标识，如果实体中的唯一表示不叫做id，需要使用selectId进行声明
+2. 实体适配器要求每一个实体必须拥有id属性作为唯一标识，如果实体中的唯一表示不叫做id，需要使用selectId进行声明
 
 ```js
 const todosAdapter = createEntityAdapter({ selectId: todo => todo.cid })
 ```
 
-#### 状态选择器
+### 10. 状态选择器
 
-提供了从实体适配器中获取状态的快捷途径
+1. 提供了从实体适配器中获取状态的快捷途径
 
 ```js
 import { createSelector } from "@reduxjs/toolkit"
@@ -251,7 +254,7 @@ export const selectTodosList = createSelector(
 )
 ```
 
-在组件中使用状态选择器
+2. 在组件中使用状态选择器
 
 ```js
 import { selectTodosList } from './store/todos'
