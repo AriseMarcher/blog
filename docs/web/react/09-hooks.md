@@ -51,7 +51,7 @@ import React, { useState } from 'react'
 function App () {
   // useState 返回 状态数据 设置状态数据的方法
   // 要以 set进行开头 后面加上相应的名称
-  const { count, setCount } = useState(0);
+  const [ count, setCount ] = useState(0);
   // 参数为一个方法 需要用数组的解构
   // const [ count, setCount ] = useState(() => 100)
   const [ person, setPerson ] = useState({ name: '张三', age: 20 })
@@ -102,6 +102,315 @@ function App () {
 }
 
 ```
+
+#### 2.2 useReducer()
+
+另一种让函数组件保存状态的方式
+
+```js
+import { useReducer } from 'react'
+
+function App () {
+  function reducer (state, action) {
+    switch (action.type) {
+      case 'increment':
+        return state + 1;
+      case 'decrement':
+        return state - 1;
+      default:
+        return state;
+    }
+  }
+
+  const [ count, dispatch ] = useReducer(reducer, 0)
+
+  return <div>
+    <button onClick={() => dispatch({ type: 'decrement'})}>-1</button>
+    <span>{count}</span>
+    <button onClick={() => dispatch({ type: 'increment'})}>+1</button>
+  </div>
+}
+
+export default App;
+```
+
+#### 2.3 useContext()
+
+在跨组件层级获取数据时简化获取数据的代码
+
+之前使用createContext的代码
+
+```js
+import { createContext } from 'react'
+
+const counterContext = createContext()
+
+function App () {
+  return <counterContext.Provider value={100}>
+    <Foo />
+  </counterContext.Provider>
+}
+
+function Foo () {
+  return <counterContext.Consumer>
+    {
+      value => {
+        return <div>{value}</div>
+      }
+    }
+  </counterContext.Consumer>
+}
+
+export default App;
+```
+
+简化后的代码
+
+```js
+import { createContext, useContext } from 'react'
+
+const counterContext = createContext()
+
+function App () {
+  return <counterContext.Provider value={100}>
+    <Foo />
+  </counterContext.Provider>
+}
+
+function Foo () {
+  const value = useContext(counterContext)
+  return <div>Foo-{value}</div>
+}
+
+export default App;
+```
+#### 2.4 useEffect()
+
+让函数型组件拥有处理副作用的能力，类似生命周期函数。
+
+可以把useEffect看做componentDidMount,componentDidUpdate和componentWillUnMount这三个函数的组合
+
++ useEffect(() => {})  => componentDidMount,componentDidUpdate
++ useEffect(() => {}, []) => componentDidMount
++ useEffect(() => () => {})  ==> componentWillUnMount
+
+```js
+import { useEffect, useState } from 'react'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  // 组件挂载完成之后执行 组件数据更新完成之后
+  // useEffect(() => {
+  //   console.log('111')
+  // })
+
+  // 组件挂载完成之后执行一次 之后不会执行
+  useEffect(() => {
+    console.log('222')
+  }, [])
+
+  // 组件被卸载之前执行
+  useEffect(() => {
+    return () => {
+      console.log('333')
+    }
+  })
+
+  return <div className='app'>
+    <span>{count}</span>
+    <button onClick={() => setCount(count + 1)}>+1</button>
+  </div>
+}
+
+
+export default App;
+```
+
+1. 为window对象添加滚动事件
+2. 设置定时器让count数值每隔一秒加1
+
+```js
+import { useEffect, useState } from 'react'
+
+function App() {
+  
+  function onScroll () {
+    console.log('the page is scrolling')
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
+
+  const [count, setCount] = useState(0)
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCount(count => count + 1)
+    }, 1000)
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
+  return <div>
+    <span>{count}</span>
+  </div>
+}
+
+export default App;
+```
+
+useEffect解决的问题
+
+1. 按照用途代码进行分类（将一组相干的业务逻辑归置到了同一个副作用函数中）
+2. 简化重复代码，使组件内部代码更加清晰
+
+useEffect数据监测
+
+useEffect钩子函数的第二个参数，只有指定数据发生变化时触发effect
+
+```js
+useEffect(() => {
+  document.title = count
+}, [count])
+```
+
+useEffect钩子函数结合异步函数
+
+```js
+useEffect(() => {
+  // 触发异步函数写一个自执行函数 不然会破坏原有的clear方法
+  (async () => {
+    let result = await getData()
+    console.log(result)
+  })()
+}, [])
+```
+
+#### 2.5 useMemo()
+
++ useMemo的行为类似Vue中的计算属性，可以监测某个值的变化，根据变化值计算新值
++ useMemo会缓存计算结果，如果监测值没有发生变化，即使组件重新渲染，也不会重新计算。此行为可以有助于避免在每个渲染上进行昂贵的计算。
+
+```js
+import { useMemo } from 'react'
+
+const result = useMemo(() => {
+  // 如果count值发生变化此函数重新执行
+  // 没有则不会重新执行，类似Vue的computed属性
+  return result
+}, [count])
+```
+#### 2.6 memo()
+
+性能优化，如果本组件中的数据没有发生变化，阻止组件更新，类似类组件中的PureComponent和shouldComponentUpdate
+
+```js
+import { useMemo, useState, memo } from 'react'
+
+function App() {
+  const [count, setCount] = useState(0)
+  const [bool, setBool] = useState(true)
+
+  const result = useMemo(() => {
+    return count * 2
+  }, [count])
+
+  return <div>
+    <span>{count} -- {result} -- {bool ? '真': '假'}</span>
+    <button onClick={() => setCount(count + 1)}>+1</button>
+    <button onClick={() => setBool(!bool)}>+1</button>
+    <Foo />
+  </div>
+}
+
+// 不使用 memo 每次App里面的数据变化时 这个都会重新渲染
+const Foo = memo(function Foo () {
+  console.log('Foo组件重新渲染了')
+  return <div>Foo组件</div>
+})
+
+
+export default App;
+```
+#### 2.7 useCallback()
+性能优化，缓存函数，使组件重新渲染时得到相同的函数实例
+
+```js
+import { useState, memo, useCallback } from 'react'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  const resetCount = useCallback(() => setCount(0), [setCount])
+
+  return <div>
+    <span>{count}</span>
+    <button onClick={() => setCount(count + 1)}>+1</button>
+    <Foo resetCount={resetCount} />
+  </div>
+}
+
+const Foo = memo(function Foo (props) {
+  console.log('Foo组件重新渲染了')
+  return <div>
+    Foo组件
+    <button onClick={props.resetCount}>resetCount</button>
+  </div>
+})
+
+
+export default App;
+```
+
+#### 2.8 useRef()
+
+1. 获取DOM元素对象
+
+```js
+import { useRef } from 'react'
+
+function App () {
+  const usename = useRef()
+  const hander = () => console.log(username)
+  return <input ref={username} onChange={hander} />
+}
+```
+
+2. 保存数据（跨组件周期）
+
+即使组件重新渲染，保持的数据依然还在，保存的数据被更改不会触发组件重新渲染
+
+```js
+import { useEffect, useState, useRef } from 'react'
+
+function App() {
+  const [count, setCount] = useState(0)
+  let timer = useRef();
+  useEffect(() => {
+    // 会触发组件重新渲染 不能直接把timer设置成Null
+    timer.current = setInterval(() => {
+      setCount(count => count + 1)
+    }, 1000)
+  }, [])
+  const stopCount = () => {
+    console.log(timer)
+    clearInterval(timer.current)
+  }
+
+  return <div>
+    {count}
+    <button onClick={stopCount}>Stop increment</button>
+  </div>
+}
+
+export default App;
+```
+
 
 
 ### 3. 自定义Hook
