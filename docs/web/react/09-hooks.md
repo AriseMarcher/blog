@@ -411,11 +411,76 @@ function App() {
 export default App;
 ```
 
-
-
 ### 3. 自定义Hook
+
++ 自定义Hook是标准的封装和共享逻辑的方式
++ 自定义Hook是一个函数，其名称以use开头
++ 自定义Hook其实就是逻辑和内置的Hook的组合
+
+在组件完成之后向服务端发送请求，其他组件也需要这个请求
+
+```js
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+
+// 自定义Hook 逻辑和内置的hook组合
+function useGetPost () {
+  const [post, setPost ] = useState({})
+  useEffect(() => {
+    axios.get('https://xxx.com/xxx')
+      .then(response => {
+        setPost(response.data)
+      })
+  }, [])
+  return [post, setPost]
+}
+
+function App() {
+  const [post, setPost] = useGetPost()
+
+  return <div>
+    <div>{post.title}</div>
+    <br />
+    <div>{post.body}</div>
+  </div>
+}
+
+export default App;
+```
+
+示例二：公共逻辑
+
+```js
+import { useState } from 'react'
+
+function useUpdateInput (initialValue) {
+  const [value, setValue] = useState(initialValue)
+  return {
+    value,
+    onChange: event => setValue(event.target.value)
+  }
+}
+
+function App() {
+  const usernameInput = useUpdateInput('')
+  const passwordInput = useUpdateInput('')
+  const submitForm = event => {
+    event.preventDefault();
+    console.log(usernameInput)
+    console.log(passwordInput)
+  }
+
+  return <form onSubmit={submitForm}>
+    <input type="text" name="username" {...usernameInput} />
+    <input type="password" name="password" {...passwordInput} />
+    <input type="submit" />
+  </form>
+}
+
+export default App;
+```
 
 ### 4. React 路由Hooks
 
-### 5. React Hooks 原理分析
+待定。。。我要去看下 react-router-dom6的文档
 
