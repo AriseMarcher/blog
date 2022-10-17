@@ -40,7 +40,9 @@
         "react/06-redux-simulation.md",
         "react/07-redux-toolkit.md",
         "react/08-mobx.md",
-        "react/09-hooks.md"
+        "react/09-hooks.md",
+        "react/10-component.md",
+        "react/11-css-in-js.md"
       ]
     },
     {
