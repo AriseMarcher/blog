@@ -42,7 +42,8 @@
         "react/08-mobx.md",
         "react/09-hooks.md",
         "react/10-component.md",
-        "react/11-css-in-js.md"
+        "react/11-css-in-js.md",
+        "react/12-组件性能优化.md"
       ]
     },
     {
