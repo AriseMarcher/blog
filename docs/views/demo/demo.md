@@ -12,13 +12,13 @@ categories:
 
 <RecoDemo :collapse="true">
   <template slot="code-template">
-    <<< @/.vuepress/demo/extract-code.vue?template
+    <<< @/docs/.vuepress/demo/extract-code.vue?template
   </template>
   <template slot="code-script">
-    <<< @/.vuepress/demo/extract-code.vue?script
+    <<< @/docs/.vuepress/demo/extract-code.vue?script
   </template>
   <template slot="code-style">
-    <<< @/.vuepress/demo/extract-code.vue?style
+    <<< @/docs/.vuepress/demo/extract-code.vue?style
   </template>
   <extract-code slot="demo"></extract-code>
 </RecoDemo>

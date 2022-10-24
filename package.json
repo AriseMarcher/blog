@@ -21,6 +21,7 @@
     "vuepress-theme-reco": "^1.6.15"
   },
   "dependencies": {
+    "@vuepress-reco/vuepress-plugin-extract-code": "^1.0.4",
     "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
     "@vuepress/plugin-register-components": "^1.9.7",
     "vuepress-plugin-code-copy": "^1.0.6"
