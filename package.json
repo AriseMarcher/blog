@@ -10,20 +10,20 @@
     "test": "node configjson.js"
   },
   "devDependencies": {
-    "@vuepress/plugin-medium-zoom": "^1.9.7",
-    "vuepress": "^1.9.7",
-    "vuepress-plugin-cursor-effects": "^1.1.4",
-    "vuepress-plugin-dynamic-title": "^1.0.0",
-    "vuepress-plugin-meting": "^0.3.2",
-    "vuepress-plugin-nuggets-style-copy": "^1.0.3",
-    "vuepress-plugin-ribbon": "^1.1.4",
-    "vuepress-plugin-sakura": "^1.2.1",
-    "vuepress-theme-reco": "^1.6.15"
+    "@vuepress/plugin-medium-zoom": "1.9.7",
+    "vuepress": "1.9.7",
+    "vuepress-plugin-cursor-effects": "1.1.4",
+    "vuepress-plugin-dynamic-title": "1.0.0",
+    "vuepress-plugin-meting": "0.3.2",
+    "vuepress-plugin-nuggets-style-copy": "1.0.3",
+    "vuepress-plugin-ribbon": "1.1.4",
+    "vuepress-plugin-sakura": "1.2.1",
+    "vuepress-theme-reco": "1.6.15"
   },
   "dependencies": {
-    "@vuepress-reco/vuepress-plugin-extract-code": "^1.0.4",
-    "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
-    "@vuepress/plugin-register-components": "^1.9.7",
-    "vuepress-plugin-code-copy": "^1.0.6"
+    "@vuepress-reco/vuepress-plugin-extract-code": "1.0.4",
+    "@vuepress-reco/vuepress-plugin-kan-ban-niang": "1.0.5",
+    "@vuepress/plugin-register-components": "1.9.7",
+    "vuepress-plugin-code-copy": "1.0.6"
   }
 }
