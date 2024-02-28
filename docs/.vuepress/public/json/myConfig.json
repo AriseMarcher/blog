@@ -16,11 +16,6 @@
       ]
     },
     {
-      "title": "nodejs",
-      "collapsable": true,
-      "children": []
-    },
-    {
       "title": "nuxtJs",
       "collapsable": true,
       "children": [
