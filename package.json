@@ -18,7 +18,7 @@
     "vuepress-plugin-nuggets-style-copy": "1.0.3",
     "vuepress-plugin-ribbon": "1.1.4",
     "vuepress-plugin-sakura": "1.2.1",
-    "vuepress-theme-reco": "1.6.15"
+    "vuepress-theme-reco": "1.6.17"
   },
   "dependencies": {
     "@vuepress-reco/vuepress-plugin-extract-code": "1.0.4",
