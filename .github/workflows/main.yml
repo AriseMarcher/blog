@@ -21,8 +21,8 @@ jobs:
           # 如果你文档需要 Git 子模块，取消注释下一行
           # submodules: true
 
-      - name: 安装 pnpm
-        uses: pnpm/action-setup@v2
+      - name: 安装 npm
+        uses: npm/action-setup@v2
         with:
           run_install: true
           version: 8
@@ -32,14 +32,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: pnpm
+          cache: npm
 
 
       - name: 构建文档
         env:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |-
-          pnpm run build
+          npm run build
           > docs/.vuepress/dist/.nojekyll
 
       - name: 部署文档
