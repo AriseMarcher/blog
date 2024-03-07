@@ -26,7 +26,7 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "默认页脚",
+  footer: "每天进步亿点点",
   displayFooter: true,
 
   // 博客相关
