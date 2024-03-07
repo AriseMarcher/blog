@@ -1,9 +1,9 @@
 ---
-title: JavaScript目录
+title: React目录
 index: false
 icon: laptop-code
 category:
-  - JavaScript
+  - React
 ---
 
 <Catalog />
