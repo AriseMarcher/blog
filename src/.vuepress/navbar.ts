@@ -26,6 +26,14 @@ export default navbar([
           { text: "React", icon: "pen-to-square", link: "React/" },
         ],
       },
+      {
+        text: "打包",
+        icon: "pen-to-square",
+        prefix: "pack/",
+        children: [
+          { text: "Gulp", icon: "pen-to-square", link: "Gulp/" },
+        ],
+      },
     ],
   },
   // {
