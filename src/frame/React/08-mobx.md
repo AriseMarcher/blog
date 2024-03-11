@@ -45,7 +45,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 1. 创建用于存储状态的 Store
 
-   ```jsx
+   ```js
    export default class CounterStore {
      constructor() {
        this.count = 0
@@ -55,7 +55,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 2. 创建用于修改状态的方法
 
-   ```jsx
+   ```js
    export default class CounterStore {
      constructor() {
        this.count = 0
@@ -74,7 +74,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
    1. 通过 observable 标识状态，使状态可观察
    2. 通过 action 标识修改状态的方法，状态只有通过 action 方法修改后才会通知视图更新
 
-   ```jsx
+   ```js
    import { action, makeObservable, observable } from "mobx"
    
    export default class CounterStore {
@@ -97,7 +97,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 4. 创建 Store 类的实例对象并将实例对象传递给组件
 
-   ```jsx
+   ```js
    // App.js
    import Counter from "./Counter"
    import CounterStore from "../store/Counter"
@@ -113,7 +113,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 5. 在组件中通过 Store 实例对象获取状态以及操作状态的方法
 
-   ```jsx
+   ```js
    function Counter({ counterStore }) {
      return (
        <Container>
@@ -133,7 +133,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 6. 当组件中使用到的 MobX 管理的状态发生变化后，使视图更新。通过 observer 方法包裹组件实现目的
 
-   ```jsx
+   ```js
    import { observer } from "mobx-react-lite"
    
    function Counter() { }
@@ -143,7 +143,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 7. 简化组件代码
 
-   ```jsx
+   ```js
    function Counter({ counterStore }) {
      const { count, increment, decrement } = counterStore
      return (
@@ -162,7 +162,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 8. 当代码简化后，修改状态的方法中的 this 指向出现了问题，通过 action.bound 强制绑定 this，使 this 指向 Store 实例对象
 
-   ```jsx
+   ```js
    import { action, makeObservable, observable } from "mobx"
    
    export default class CounterStore {
@@ -193,7 +193,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
     在应用中可存在多个 Store，多个 Store 最终要通过 RootStore 管理，在每个组件都需要获取到 RootStore。
 
-    ```jsx
+    ```js
     // store/index.js
     import { createContext, useContext } from "react"
     import CounterStore from "./Counter"
@@ -219,7 +219,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
     }
     ```
 
-    ```jsx
+    ```js
     // App.js
     import { RootStoreProvider } from "../store"
     import Counter from "./Counter"
@@ -235,7 +235,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
     export default App
     ```
 
-    ```jsx
+    ```js
     import { observer } from "mobx-react-lite"
     import { useRootStore } from "../store"
     
@@ -264,7 +264,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 1. 创建用于管理 Todo 任务的 Store
 
-   ```jsx
+   ```js
    import { makeObservable, observable } from "mobx"
    
    export default class Todo {
@@ -284,7 +284,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 2. 创建用于管理 Todo 任务列表的 Store
 
-   ```jsx
+   ```js
    import { makeObservable, observable } from "mobx"
    
    export default class TodoStore {
@@ -301,7 +301,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 1. 创建向 todo 任务列表中添加 todo 任务的方法
 
-   ```jsx
+   ```js
    import { action, makeObservable, observable } from "mobx"
    import Todo from "./Todo"
    
@@ -325,7 +325,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 2. 在组件中实现添加任务的逻辑
 
-   ```jsx
+   ```js
    import { useState } from "react"
    import { useRootStore } from "../../store"
    
@@ -353,7 +353,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 #### 6.3 显示任务列表
 
-```jsx
+```js
 import { observer } from "mobx-react-lite"
 import { useRootStore } from "../../store"
 import Todo from "./Todo"
@@ -375,7 +375,7 @@ function Main() {
 export default observer(Main)
 ```
 
-```jsx
+```js
 function Todo({ todo }) {
   return (
     <li>
@@ -432,7 +432,7 @@ export default Todo
 
 5. 在 todoStore 中添加加载任务列表的方法
 
-   ```jsx
+   ```js
    import axios from "axios"
    import { flow, makeObservable, observable } from "mobx"
    import Todo from "./Todo"
@@ -457,7 +457,7 @@ export default Todo
 
 1. 在 Todo 类中添加修改任务是否已经完成的方法
 
-   ```jsx
+   ```js
    export default class Todo {
      constructor() {
        makeObservable(this, {
@@ -472,7 +472,7 @@ export default Todo
 
 2. 创建 `TodoCompleted` 组件实现逻辑
 
-   ```jsx
+   ```js
    import { observer } from "mobx-react-lite"
    
    function TodoCompleted({ todo }) {
@@ -492,7 +492,7 @@ export default Todo
 
 3. 在 `Todo` 组件中引用`TodoCompleted` 组件并根据条件决定是否为 `li` 添加 `completed` 类名
 
-   ```jsx
+   ```js
    import { observer } from "mobx-react-lite"
    import TodoCompleted from "./TodoCompleted"
    
@@ -513,7 +513,7 @@ export default Todo
 
 1. 在 `todoStore` 中添加实现删除任务的方法
 
-   ```jsx
+   ```js
    import axios from "axios"
    import { action, makeObservable,  } from "mobx"
    
@@ -531,7 +531,7 @@ export default Todo
 
 2. 创建 `TodoDelete` 组件实现删除 todo 任务逻辑
 
-   ```jsx
+   ```js
    import { useRootStore } from "../../store"
    
    function TodoDelete({ id }) {
@@ -545,7 +545,7 @@ export default Todo
 
 3. 在 `Todo` 组件调用 `TodoDelete` 组件并传入 todo ID
 
-   ```jsx
+   ```js
    import { observer } from "mobx-react-lite"
    import TodoDelete from "./TodoDelete"
    
@@ -566,7 +566,7 @@ export default Todo
 
 1. 在 todoStore 中添加更改任务是否处于编辑状态的方法
 
-   ```jsx
+   ```js
    import { action, makeObservable } from "mobx"
    
    export default class Todo {
@@ -583,7 +583,7 @@ export default Todo
 
 2. 添加 `TodoTitle` 组件展示任务标题并为其添加双击事件，当事件发生时将任务更改为可编辑状态
 
-   ```jsx
+   ```js
    function TodoTitle({ todo }) {
      const { title, modifyTodoIsEditing } = todo
      return <label onDoubleClick={modifyTodoIsEditing}>{title}</label>
@@ -594,7 +594,7 @@ export default Todo
 
 3. 在 `Todo` 组件中调用 `TodoTitle` 组件，并为 `li` 添加 `editing` 类名
 
-   ```jsx
+   ```js
    import { observer } from "mobx-react-lite"
    import TodoTitle from "./TodoTitle"
    import classnames from "classnames"
@@ -614,7 +614,7 @@ export default Todo
 
 4. 创建 `TodoEditing` 组件实现编辑 todo 任务标题
 
-   ```jsx
+   ```js
    import { useRef, useEffect } from "react"
    
    function TodoEditing({ todo }) {
@@ -638,7 +638,7 @@ export default Todo
 
 5. 在 `Todo` 组件中调用 `TodoEditing` 组件并传递 todo 任务
 
-   ```jsx
+   ```js
    import { observer } from "mobx-react-lite"
    import TodoTitle from "./TodoTitle"
    import classnames from "classnames"
@@ -662,7 +662,7 @@ export default Todo
 
 1. 在 todoStore 中添加获取未完成任务数量的派生状态
 
-   ```jsx
+   ```js
    import axios from "axios"
    import { makeObservable, computed } from "mobx"
    
@@ -680,7 +680,7 @@ export default Todo
    
 2. 创建 `UnCompletedTodoCount` 组件实现逻辑
 
-   ```jsx
+   ```js
    import { observer } from "mobx-react-lite"
    import { useRootStore } from "../../store"
    
@@ -699,7 +699,7 @@ export default Todo
 
 3. 在 `Footer` 组件中调用 `UnCompletedTodoCount` 组件
 
-   ```jsx
+   ```js
    import UnCompletedTodoCount from "./UnCompletedTodoCount"
    
    function Footer() {
@@ -717,7 +717,7 @@ export default Todo
 
 1. 在 `todoStore` 中添加存储过滤条件的属性以及更改过滤条件的方法
 
-   ```jsx
+   ```js
    import axios from "axios"
    import { action, makeObservable, observable, } from "mobx"
    
@@ -737,7 +737,7 @@ export default Todo
 
 2. 创建 `TodoFilter` 组件，为过滤按钮添加事件以更改过滤条件，根据过滤条件为按钮添加 `selected` 类名
 
-   ```jsx
+   ```js
    import classNames from "classnames"
    import { observer } from "mobx-react-lite"
    import { useRootStore } from "../../store"
@@ -780,7 +780,7 @@ export default Todo
 
 3. 在 `Footer` 组件中调用 `TodoFilter` 组件
 
-   ```jsx
+   ```js
    import TodoFilter from "./TodoFilter"
    
    function Footer() {
@@ -796,7 +796,7 @@ export default Todo
    
 4. 在 `TodoStore` 中添加派生状态，根据条件获取过滤后的 todo 列表
 
-   ```jsx
+   ```js
    import axios from "axios"
    import { action, flow, makeObservable, observable, computed } from "mobx"
    import Todo from "./Todo"
@@ -822,7 +822,7 @@ export default Todo
 
 5. 在 Main 组件获取 `filterTodos` 派生状态
 
-   ```jsx
+   ```js
    import { observer } from "mobx-react-lite"
    import { useRootStore } from "../../store"
    import Todo from "./Todo"
@@ -848,7 +848,7 @@ export default Todo
 
 1. 在 `TodoStore` 中添加清除已完成任务的方法
 
-   ```jsx
+   ```js
    import axios from "axios"
    import { action, makeObservable, } from "mobx"
    
@@ -866,7 +866,7 @@ export default Todo
 
 2. 创建 `ClearCompleted` 组件实现清除已完成任务功能
 
-   ```jsx
+   ```js
    import { useRootStore } from "../../store"
    
    function ClearCompleted() {
@@ -884,7 +884,7 @@ export default Todo
 
 3. 在 `Footer` 组件中调用 `ClearCompleted` 组件
 
-   ```jsx
+   ```js
    import ClearCompleted from "./ClearCompleted"
    
    function Footer() {

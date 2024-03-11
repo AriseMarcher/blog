@@ -15,7 +15,7 @@ category:
 
 JavaScript 状态容器，提供可预测化的状态管理
 
-```jsx
+```js
 const state = {
   user: null,
   isLogin: false

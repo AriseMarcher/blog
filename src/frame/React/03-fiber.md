@@ -241,7 +241,7 @@ DOM 更新操作: newFiber vs oldFiber -> Fiber[] -> DOM
 
 #### 3.4 Fiber 对象
 
-```
+```js
 {
   type         节点类型 (元素, 文本, 组件)(具体的类型)
   props        节点属性
@@ -259,5 +259,4 @@ DOM 更新操作: newFiber vs oldFiber -> Fiber[] -> DOM
 ![示例](/assets/images/react/fibel/3.png =500x300)
 
 virtualDOM生成fiber顺序如下：
-![示例](/assets/images/react//fibel/4.png =500x300)
-
+![示例](/assets/images/react/fibel/4.png =500x300)
