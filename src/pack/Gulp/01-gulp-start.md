@@ -1,6 +1,5 @@
 ---
 title: 基本使用
-date: 2022/07/31
 sidebar: true
 excerpt: 深窥自己的心，而后发觉一切的奇迹在你自己。-- 培根
 tags:
