@@ -2,9 +2,9 @@
 title: React-- Redux simulation
 sidebar: true
 excerpt: 自信是向成功迈出的第一步。-- 爱因斯坦
-tags:
+tag:
  - react
-categories:
+category:
  - react
 ---
 

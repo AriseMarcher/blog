@@ -2,9 +2,9 @@
 title: Gulp配置篇--08--concat合并文件使用
 excerpt: 业精于勤，荒于嬉；行成于思，毁于随。-- 韩愈
 sidebar: true
-tags:
+tag:
  - Gulp
-categories:
+category:
  - Gulp
 ---
 
@@ -365,4 +365,4 @@ npm run build
 
 在html中引入concat生成后的js文件运行正常
 
-<img :src="$withBase('/images/gulp/concat-mini.png')" alt="打印结果">
+![示例](/assets/images/gulp/concat-mini.png =500x300)

@@ -2,9 +2,9 @@
 title: Gulp配置篇--07--js使用js库jq扩展
 excerpt: 穷则独善其身，达则兼济天下。-- 孟子
 sidebar: true
-tags:
+tag:
  - Gulp
-categories:
+category:
  - Gulp
 ---
 
@@ -282,4 +282,4 @@ console.log(el)
 
 ## 通过html文件引入index.js，并在控制台中打印结果如下
 
-<img :src="$withBase('/images/gulp/html-console.png')" alt="打印结果">
+![示例](/assets/images/gulp/html-console.png =500x300)

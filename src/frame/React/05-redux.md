@@ -2,9 +2,9 @@
 title: React-- Redux
 sidebar: true
 excerpt: 人生最高之理想，在求达于真理。-- 李大钊
-tags:
+tag:
  - react
-categories:
+category:
  - react
 ---
 
@@ -37,7 +37,7 @@ const state = {
 + Actions: 对象，描述对状态进行怎样的操作
 + Reducers: 函数，操作状态并返回新的状态
 
-<img :src="$withBase('/images/react/redux/1.jpg')" alt="">
+![示例](/assets/images/react/redux/1.jpg =500x300)
 
 ### 1.4 简单计数器示例
 
@@ -135,13 +135,13 @@ store.dispatch({ type: 'description...' })
 组件不能向上层组件传递数据, 要实现下层组件修改数据, 需要上层组件传递修改数据的⽅法到下层
 组件. 当项⽬越来越⼤的时候, 组件之间传递数据变得越来越困难
 
-<img :src="$withBase('/images/react/redux/2.jpg')" alt="">
+![示例](/assets/images/react/redux/2.jpg =500x300)
 
 ### 2.2 React中使用Redux优点
 
 使⽤Redux管理数据，由于Store独⽴于组件，使得数据管理独⽴于组件，解决了组件与组件之间传递数据困难的问题。
 
-<img :src="$withBase('/images/react/redux/3.jpg')" alt="">
+![示例](/assets/images/react/redux/3.jpg =500x300)
 
 ### 2.3 下载 Redux
 
@@ -154,7 +154,7 @@ store.dispatch({ type: 'description...' })
 3. Reducer根据Action类型对状态进行更改并将更改后的状态返回给Store
 4. 组件订阅了Store的状态，Store中的状态更新会同步到组件
 
-<img :src="$withBase('/images/react/redux/4.jpg')" alt="">
+![示例](/assets/images/react/redux/4.jpg =500x300)
 
 ### 2.5 Redux 使用步骤
 
@@ -196,7 +196,7 @@ root.render(
 ```
 
 2. 组件使用connect方法获取数据并将数据通过props传递进组件
-<img :src="$withBase('/images/react/redux/5.jpg')" alt="">
+![示例](/assets/images/react/redux/5.jpg =500x300)
 
 组件使用connect方法获取数据并将数据通过props传递进组件
 
@@ -534,7 +534,7 @@ export const store = createStore(RootReducer)
 
 ### 3.2 中间件流程图
 
-<img :src="$withBase('/images/react/redux/6.jpg')" alt="">
+![示例](/assets/images/react/redux/6.jpg =500x300)
 
 ### 3.3 开发 Redux 中间件
 

@@ -2,9 +2,9 @@
 title: Gulp配置篇--02--压缩html
 sidebar: true
 excerpt: 千磨万击还坚韧，任尔东南西北风。-- 郑板桥
-tags:
+tag:
  - Gulp
-categories:
+category:
  - Gulp
 ---
 

@@ -2,9 +2,9 @@
 title: Gulp配置篇--04--压缩js
 excerpt: 真正的才智是坚毅的志向-- 拿破仑
 sidebar: true
-tags:
+tag:
  - Gulp
-categories:
+category:
  - Gulp
 ---
 

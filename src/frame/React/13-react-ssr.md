@@ -2,9 +2,9 @@
 title: React-- react ssr
 sidebar: true
 excerpt: 人生天地之间，若白驹过隙，忽然而已。-- 庄子
-tags:
+tag:
  - react
-categories:
+category:
  - react
 ---
 

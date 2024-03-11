@@ -2,13 +2,13 @@
 title: React-- Fiber
 sidebar: true
 excerpt: 天空虽不曾留下遗迹，但我已飞过。-- 泰戈尔
-tags:
+tag:
  - react
-categories:
+category:
  - react
 ---
 
-### `1. 开发环境配置
+### 1. 开发环境配置
 
 #### 1.1 文件夹结构
 
@@ -48,7 +48,7 @@ categories:
 
 ##### 1.3.1 创建 web 服务器
 
-```javascript
+```js
 // server.js
 import express from "express"
 const app = express()
@@ -72,7 +72,7 @@ app.listen(3000, () => console.log("server is running"))
 
 ##### 1.3.2 服务端 webpack 配置
 
-```javascript
+```js
 // webpack.config.server.js
 const path = require("path")
 const nodeExternals = require("webpack-node-externals")
@@ -102,7 +102,7 @@ module.exports = {
 
 ##### 1.3.3 babel 配置
 
-```javascript
+```js
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"]
 }
@@ -110,7 +110,7 @@ module.exports = {
 
 ##### 1.3.4 客户端 webpack 配置
 
-```javascript
+```js
 const path = require("path")
 
 module.exports = {
@@ -153,7 +153,7 @@ module.exports = {
 
 利用浏览器的空余时间执行任务，如果有更高优先级的任务要执行时，当前执行的任务可以被终止，优先执行高级别任务。
 
-```javascript
+```js
 requestIdleCallback(function(deadline) {
   // deadline.timeRemaining() 获取浏览器的空余时间
 })
@@ -189,7 +189,7 @@ requestIdleCallback(function(deadline) {
 </style>
 ```
 
-```javascript
+```js
 var play = document.getElementById("play")
 var workBtn = document.getElementById("work")
 var interactionBtn = document.getElementById("interaction")
@@ -256,7 +256,8 @@ DOM 更新操作: newFiber vs oldFiber -> Fiber[] -> DOM
 }
 ```
 
-<img :src="$withBase('/images/react/fibel/3.png')" alt="">
+![示例](/assets/images/react/fibel/3.png =500x300)
 
 virtualDOM生成fiber顺序如下：
-<img :src="$withBase('/images/react/fibel/4.png')" alt="">
+![示例](/assets/images/react//fibel/4.png =500x300)
+

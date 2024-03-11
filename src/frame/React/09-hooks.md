@@ -2,9 +2,9 @@
 title: React-- Hooks
 sidebar: true
 excerpt: 生活就像海洋，只有意志坚强的人，才能到达彼岸。-- 马克思
-tags:
+tag:
  - react
-categories:
+category:
  - react
 ---
 

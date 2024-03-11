@@ -2,9 +2,9 @@
 title: React-- component
 sidebar: true
 excerpt: 富贵不能淫，贫贱不能移，威武不能屈，此之谓大丈夫 -- 孟子
-tags:
+tag:
  - react
-categories:
+category:
  - react
 ---
 

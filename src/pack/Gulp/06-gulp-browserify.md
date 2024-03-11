@@ -2,9 +2,9 @@
 title: Gulp配置篇--06--js-browserify+babel
 excerpt: 少年易学老难成，一寸光阴不可轻。-- 朱熹
 sidebar: true
-tags:
+tag:
  - Gulp
-categories:
+category:
  - Gulp
 ---
 
@@ -121,8 +121,7 @@ console.log(arr.includes(fruitName))
 ### 经过bundle处理的压缩后的代码
 
 很大，如下图，望不到底部
-<img :src="$withBase('/images/gulp/browserify.png')" alt="结构">
-
+![示例](/assets/images/gulp/browserify.png =500x300)
 
 虽然很大，但用html引入该js是可以正常在浏览器上运行的，当然，包括IE。
 

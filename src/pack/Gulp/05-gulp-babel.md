@@ -2,9 +2,9 @@
 title: Gulp配置篇--05--js-babel
 excerpt: 穷且益坚，不坠青云之志。-- 王勃
 sidebar: true
-tags:
+tag:
  - Gulp
-categories:
+category:
  - Gulp
 ---
 

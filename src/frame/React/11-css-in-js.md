@@ -2,9 +2,9 @@
 title: React-- CSS-IN-JS
 sidebar: true
 excerpt: 我们热爱这个世界时，才真正活在这个世界上。 -- 泰戈尔
-tags:
+tag:
  - react
-categories:
+category:
  - react
 ---
 

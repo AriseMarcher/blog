@@ -2,9 +2,9 @@
 title: React-- Redux Toolkit
 sidebar: true
 excerpt: 悲观的人虽生犹死，乐观的人永生不老。-- 拜伦
-tags:
+tag:
  - react
-categories:
+category:
  - react
 ---
 

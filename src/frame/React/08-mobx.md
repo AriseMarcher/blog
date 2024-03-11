@@ -2,9 +2,9 @@
 title: React-- Mobx6
 sidebar: true
 excerpt: 短时期的挫折比短时间的成功好。-- 毕达哥拉斯
-tags:
+tag:
  - react
-categories:
+category:
  - react
 ---
 
@@ -29,7 +29,7 @@ MobX 可以运行在任何支持 ES5 的环境中，包含浏览器和 Node。
 
 ### 3. 工作流程
 
-<img :src="$withBase('/images/react/mobx/1.png')" alt="">
+![示例](/assets/images/react/mobx/1.png =500x300)
 
 ### 4. 下载
 

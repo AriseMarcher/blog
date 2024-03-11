@@ -2,9 +2,9 @@
 title: React-- Core source code
 sidebar: true
 excerpt: 信仰是伟大的情感，一种创造力量。-- 高尔基
-tags:
+tag:
  - react
-categories:
+category:
  - react
 ---
 
@@ -34,7 +34,7 @@ npm run eject
 
 4. 链接本地源码
 
-   ```javascript
+   ```js
    // 文件位置: react-test/config/webpack.config.js
    resolve: {
      alias: {
@@ -50,7 +50,7 @@ npm run eject
 
 5. 修改环境变量
 
-   ```javascript
+   ```js
    // 文件位置: react-test/config/env.js
    const stringified = {
    	"process.env": Object.keys(raw).reduce((env, key) => {
@@ -75,7 +75,7 @@ npm run eject
 
    `npm install @babel/plugin-transform-flow-strip-types -D`
 
-   ```javascript
+   ```js
    // 文件位置: react-test/config/webpack.config.js [babel-loader]
    plugins: [
      require.resolve("@babel/plugin-transform-flow-strip-types"),
@@ -84,7 +84,7 @@ npm run eject
 
 7. 导出 HostConfig
 
-   ```javascript
+   ```js
    // 文件位置: /react/packages/react-reconciler/src/ReactFiberHostConfig.js
    + export * from './forks/ReactFiberHostConfig.dom';
    - invariant(false, 'This module must be shimmed by a specific renderer.');
@@ -92,7 +92,7 @@ npm run eject
 
 8. 修改 ReactSharedInternals.js 文件
 
-   ```javascript
+   ```js
    // 文件位置: /react/packages/shared/ReactSharedInternals.js
    - import * as React from 'react';
    - const ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
@@ -101,7 +101,7 @@ npm run eject
 
 9. 关闭 eslint 扩展
 
-   ```javascript
+   ```js
    // 文件位置: react/.eslingrc.js [module.exports]
    // 删除 extends
    extends: [
@@ -113,7 +113,7 @@ npm run eject
 
 10. 禁止 invariant 报错
 
-    ```javascript
+    ```js
     // 文件位置: /react/packages/shared/invariant.js
     export default function invariant(condition, format, a, b, c, d, e, f) {
       if (condition) return;
@@ -150,14 +150,14 @@ npm run eject
 
   在index.js和app.js中修改引入方式
 
-    ```javascript
+    ```js
     import * as React from "react"
     import * as ReactDOM from "react-dom"
     ```
 
 13. 解决 vsCode 中 flow 报错
 
-     ```javascript
+     ```js
     "javascript.validate.enable": false
      ```
 
@@ -165,8 +165,8 @@ npm run eject
 
     如果你的 vscode 编辑器安装了 prettier 插件并且在保存 react 源码文件时右下角出现如下错误，按照如下步骤解决
 
-    <img :src="$withBase('/images/react/sourceCode/1.png')" alt="">
-
+    ![示例](/assets/images/react/sourceCode/1.png =500x300)
+    
     1. 全局安装 prettier
 
        `npm i prettier -g`
@@ -175,8 +175,7 @@ npm run eject
 
        Settings > Extensions > Prettier > Prettier path
 
-      <img :src="$withBase('/images/react/sourceCode/2.png')" alt="">
-
+      ![示例](/assets/images/react/sourceCode/2.png =500x300)
 
 15. \_\_DEV\_\_ 报错
 
@@ -638,7 +637,7 @@ type Fiber = {
 };
 ```
 
-<img :src="$withBase('/images/react/sourceCode/6.png')" alt="">
+![示例](/assets/images/react/sourceCode/6.png =500x300)
 
 ### 4.2 WorkTag
 
@@ -810,9 +809,10 @@ React 使用双缓存技术完成 Fiber 树的构建与替换，实现DOM对象�
 
 在 current Fiber 节点对象中有一个 alternate 属性指向对应的 workInProgress Fiber 节点对象，在 workInProgress Fiber 节点中有一个 alternate 属性也指向对应的 current Fiber 节点对象。
 
-<img :src="$withBase('/images/react/sourceCode/3.png')" width="40%" alt="">
+![示例](/assets/images/react/sourceCode/3.png =500x300)
 
-<img :src="$withBase('/images/react/sourceCode/4.png')" width="40%" alt="">
+![示例](/assets/images/react/sourceCode/4.png =500x300)
+
 
 ### 4.8 区分 fiberRoot 与 rootFiber
 
@@ -828,7 +828,7 @@ rootFiber 指向 fiberRoot，在 rootFiber 对象中有一个 stateNode 属性�
 
 fiberRoot 会记录应用的更新信息，比如协调器在完成工作后，会将工作成果存储在 fiberRoot 中。
 
-<img :src="$withBase('/images/react/sourceCode/7.png')" width="40%" alt="">
+![示例](/assets/images/react/sourceCode/7.png =500x300)
 
 ## 5. 初始化渲染
 
@@ -993,7 +993,7 @@ function legacyRenderSubtreeIntoContainer(
 }
 ```
 
-<img :src="$withBase('/images/react/sourceCode/5.png')" width="40%" alt="">
+![示例](/assets/images/react/sourceCode/5.png =500x300)
 
 ##### 5.1.3.2 legacyCreateRootFromDOMContainer
 

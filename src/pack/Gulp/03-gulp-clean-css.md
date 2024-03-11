@@ -2,9 +2,9 @@
 title: Gulp配置篇--03--压缩css
 sidebar: true
 excerpt: 逝者如斯夫，不舍昼夜。-- 孔丘
-tags:
+tag:
  - Gulp
-categories:
+category:
  - Gulp
 ---
 

@@ -2,9 +2,9 @@
 title: React-- Virtual DOM
 sidebar: true
 excerpt: 聪明出于勤奋，天才在于积累。-- 华罗庚
-tags:
+tag:
  - react
-categories:
+category:
  - react
 ---
 
@@ -106,7 +106,7 @@ React.createElement是用来创建virtual Dom对象的。jsx会先被转化为Re
 
 Virtual DOM 对象的更新和比较仅发生在内存中，不会在视图中渲染任何内容，所以这一部分的性能损耗成本是微不足道的。
 
-<img :src="$withBase('/images/react/virtual/9.jpg')" alt="">
+![示例](/assets/images/react/virtual/9.jpg =500x300)
 
 ```jsx
 <div id="container">
@@ -321,7 +321,7 @@ console.log(virtualDOM)
 
 通过以上代码测试，发现返回的 Virtual DOM 存在一些问题，第一个问题是文本节点被直接放入到了数组中
 
-<img :src="$withBase('/images/react/virtual/2.png')" alt="">
+![示例](/assets/images/react/virtual/2.png =500x300)
 
 
 而我们期望是文本节点应该是这样的
@@ -339,7 +339,7 @@ children: [
 
 通过以下代码对 Virtual DOM 进行改造，重新构建 Virtual DOM。
 
-```javascript
+```js
 // 将原有 children 拷贝一份 不要在原有数组上进行操作
 const childElements = [].concat(...children).map(child => {
   // 判断 child 是否是对象类型
@@ -358,7 +358,8 @@ return {
 }
 ```
 
-<img :src="$withBase('/images/react/virtual/3.png')" alt="">
+![示例](/assets/images/react/virtual/3.png =500x300)
+
 
 
 通过观察返回的 Virtual DOM，文本节点已经被转化成了对象类型的 Virtual DOM，但是布尔值也被当做文本节点被转化了，在 JSX 中，如果 Virtual DOM 被转化为了布尔值或者null，是不应该被更新到真实 DOM 中的，所以接下来要做的事情就是清除 Virtual DOM 中的布尔值和null。
@@ -381,7 +382,7 @@ const childElements = [].concat(...children).reduce((result, child) => {
 
 在 React 组件中，可以通过 props.children 获取子元素，所以还需要将子元素存储在 props 对象中。
 
-```javascript
+```js
 return {
   type,
   props: Object.assign({ children: childElements }, props),
@@ -700,7 +701,7 @@ export default function mountNativeElement(virtualDOM, container) {
 }
  ```
 
-<img :src="$withBase('/images/react/virtual/8.png')" alt="" width="80%" style="margin-bottom: 30px">
+![示例](/assets/images/react/virtual/8.png =500x300)
 
 
 #### 9.1 Virtual DOM 类型相同
@@ -813,7 +814,8 @@ else if (oldVirtualDOM && virtualDOM.type === oldVirtualDOM.type) {
   }
 ```
 
-<img :src="$withBase('/images/react/virtual/7.png')" alt="" />
+![示例](/assets/images/react/virtual/7.png =500x300)
+
 
 #### 9.2 Virtual DOM 类型不同
 
@@ -840,7 +842,7 @@ else if (
 
 在节点更新完成以后，如果旧节点对象的数量多于新 VirtualDOM 节点的数量，就说明有节点需要被删除。
 
-<img :src="$withBase('/images/react/virtual/5.png')" alt="" width="70%" />
+![示例](/assets/images/react/virtual/5.png =500x300)
 
 ```jsx
 // 获取就节点的数量
@@ -1070,7 +1072,7 @@ else {
 
 在 mountNativeElement 方法中删除原有的旧 DOM 对象
 
-```javascript
+```js
 // mountNavtiveElement.js
 export default function mountNativeElement(virtualDOM, container, oldDOM) {
  // 如果旧的DOM对象存在 删除
