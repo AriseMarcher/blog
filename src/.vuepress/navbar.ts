@@ -14,6 +14,7 @@ export default navbar([
         prefix: "web/",
         children: [
           { text: "JavaScript", icon: "pen-to-square", link: "JavaScript/" },
+          { text: "TypeScript", icon: "pen-to-square", link: "Ts/" },
           { text: "Css", icon: "pen-to-square", link: "Css/" },
         ],
       },
