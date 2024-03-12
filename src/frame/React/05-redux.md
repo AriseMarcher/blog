@@ -15,7 +15,7 @@ category:
 
 JavaScript 状态容器，提供可预测化的状态管理
 
-```js
+```jsx
 const state = {
   user: null,
   isLogin: false
@@ -26,9 +26,7 @@ const state = {
 
 + [官网](https://cn.redux.js.org/)
 + CDN
-  `
-  <script src="https://cdn.bootcdn.net/ajax/libs/redux/4.2.0/redux.js"></script>
-  `
+`<script src="https://cdn.bootcdn.net/ajax/libs/redux/4.2.0/redux.js"></script>`
 
 ### 1.3 Redux核心概念及工作流程
 
@@ -110,7 +108,7 @@ const state = {
 
 ### 1.5 Redux核心API
 
-```js
+```jsx
 // 创建 Store 状态容器
 const store = Redux.createStore(reducer)
 
@@ -164,7 +162,7 @@ store.dispatch({ type: 'description...' })
 2. createStore方法的第一个参数需要传递reducer
 3. reducer是一个函数，函数返回什么，store中就存储什么，函数名称自定义
 
-```js
+```jsx
 import { createStore } from 'redux'
 const store = createStore(reducer)
 function reducer() {
@@ -179,10 +177,9 @@ Provider + connect
 :::
 
 1. 将store中的数据放在Provider组件中，Provider组件是存储共享数据的地方
-```js
+```jsx
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux'
-Re
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -200,7 +197,7 @@ root.render(
 
 组件使用connect方法获取数据并将数据通过props传递进组件
 
-```js
+```jsx
 import { connect } from 'react-redux'
 const mapStateToProps = state => ({
   count: state.count
@@ -211,19 +208,19 @@ export default connect(mapStateToProps)(组件名称)
 #### 2.5.3. 组件更改Store中的数据
 
 1 定义 action （action是改变状态的唯一途径）
-```js
+```jsx
 { type: '描述对数据要进行什么要的操作' }
 ```
 
 2 组件触发 action
 
-```js
+```jsx
 this.props.dispatch({ type: '描述对数据要进行什么要的操作' })
 ```
 
 3 reducer 接受action,针对 action 对数据进行处理并返回
 
-```js
+```jsx
 const initialState = { count: 0 }
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -238,15 +235,15 @@ const reducer = (state = initialState, action) => {
 #### 2.5.4. 为 action 传递参数
 
 1. 传递参数
-```js
+```jsx
 <button onClick={() => increment(5)}>增加按钮</button>
 ```
 2. 接受参数，传递给 reducer
-```js
+```jsx
 export const increment = payload => ({ type: INCREMENT, payload })
 ```
 3. reducer 根据接收到的数据进行处理
-```js
+```jsx
 export default (state, action) => {
   switch (action.type) {
     case INCREMENT:
@@ -261,13 +258,13 @@ export default (state, action) => {
 
 在组件中通过调用<code>this.props.dispatch({type:'描述对数据进行怎么样的操作'})</code>方法触发action,会造成HTML模板在视觉上的混乱
 
-```js
+```jsx
 const { increment, decrement } = this.props
 <button onClick={increment}>增加</button>
 <button onClick={decrement}>减少</button>
 ```
 
-```js
+```jsx
 const mapStateToProps = state => ({
   count: state.count
 })
@@ -288,7 +285,7 @@ export default connect(mapStateToProps,mapDispatchToProps)(组件名称)
 
 触发action的函数，内部代码重复率非常高，所以React提供了方法帮我们生成这些函数，代替开发者手写
 
-```js
+```jsx
 // store/actions/counter.action.js
 export const increment = () => ({ type: 'increment' })
 export const decrement = () => ({ type: 'decrement' })
@@ -333,7 +330,7 @@ Action类型字符串组件在触发Action时需要使用，Reducer在接受Acti
 
 ##### components
 ###### Counter.js
-```js
+```jsx
 import React from "react"
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -384,7 +381,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 
 ###### Modal.js
 
-```js
+```jsx
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -421,7 +418,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Modal);
 
 ##### actions
 
-```js
+```jsx
 // counter.action.js
 import { DECREMENT, INCREMENT } from "../const/counter.const"
 
@@ -437,7 +434,7 @@ export const isHide = () => ({ type: ISHIDEMODAL })
 
 ##### const
 
-```js
+```jsx
 // counter.const.js
 export const INCREMENT = 'increment'
 export const DECREMENT = 'decrement'
@@ -450,7 +447,7 @@ export const ISHIDEMODAL = 'isHideModal'
 ##### reducers
 
 ###### counter.reducer.js
-```js
+```jsx
 import { DECREMENT, INCREMENT } from "../const/counter.const"
 
 const initialState = {
@@ -477,7 +474,7 @@ export default (state = initialState, action) => {
 ```
 
 ###### modal.reducer.js
-```js
+```jsx
 import { ISSHOWMODAL, ISHIDEMODAL } from "../const/modal.const"
 
 const initialState = {
@@ -504,7 +501,7 @@ export default (state = initialState, action) => {
 ```
 
 ###### root.reducer.js
-```js
+```jsx
 import { combineReducers } from 'redux'
 
 import CounterReducer from './counter.reducer'
@@ -518,7 +515,7 @@ export default combineReducers({
 ```
 
 ##### index.js
-```js
+```jsx
 import { createStore } from 'redux'
 import RootReducer from './reducers/root.reducer'
 
@@ -541,7 +538,7 @@ export const store = createStore(RootReducer)
 中间件开发的模板代码
 
 柯里化形式的函数
-```js
+```jsx
 export default store => next => action = {  }
 ```
 要求返回一个函数，再返回一个函数
@@ -553,7 +550,7 @@ next: 中间件处理完毕后需要调用next将其传递给下一个中间件�
 
 只有把开发好的中间件注册给store，才能生效
 
-```js
+```jsx
 import { createStore, applyMiddleware } from 'redux'
 // 自己开发的中间件
 import logger from './middleware/logger'
@@ -565,7 +562,7 @@ createStore(reducer, applyMiddleware(
 ))
 ```
 
-```js
+```jsx
 // middleware/logger.js
 export default store => next => action => {
   // 我需要打印下 action 的信息
@@ -586,7 +583,7 @@ export default store => next => action => {
 
 简单实现一个可以在Redux的工作流程中加入异步代码
 
-```js
+```jsx
 // eslint-disable-next-line import/no-anonymous-default-export
 export default ({dispatch}) => next => action => {
   // 1. 当前这个中间件函数不关心你想执行什么样的异步操作 只关心你执行的是不是异步操作
@@ -605,7 +602,7 @@ export default ({dispatch}) => next => action => {
 
 调用举例
 
-```js
+```jsx
 import { DECREMENT, INCREMENT } from "../const/counter.const"
 
 export const increment = payload => ({ type: INCREMENT, payload })
@@ -630,21 +627,21 @@ export const increment_async = payload => dispatch => {
 `npm install redux-thunk`
 
 #### 引入
-```js
+```jsx
 import thunk from 'redux-thunk'
 
 ```
 
 #### 注册
 
-```js
+```jsx
 import { applyMiddleware } from 'redux'
 
 createStore(rootReducer, applyMiddleware(thunk))
 ```
 
 #### 使用redux-thunk中间件
-```js
+```jsx
 const loadPosts = () => async dispatch => {
   const post = await axiod.get('/api/posts').then(response => response.data)
   dispatch({ type: LOADPOSTSSUCCESS, payload: posts })
@@ -664,18 +661,18 @@ redux-saga可以将异步操作从Action Creator文件中抽离出来，放在�
 `npm install redux-saga`
 
 #### 4.2.3 创建 redux-saga 中间件
-```js
+```jsx
 import createSagaMiddleware from 'redux-saga'
 // 中间件需要调用方法得到
 const sageMiddleware = createSagaMiddleware()
 ```
 
 #### 4.2.4 注册 sagaMiddleware
-```js
+```jsx
 createStore(reducer, applyMiddleware(sageMiddleware))
 ```
 #### 4.2.5 使用saga接受action执行异步操作
-```js
+```jsx
 // takeEvery 用来接受action的类型字符串
 // put 用来触发另外一个action 当异步操作返回结果以后 需要通过put方法去触发一个action 帮助把异步操作的结果返回给action 跟dispatch作用是一样的
 import { takeEvery, put } from 'redux-sage/effects'
@@ -697,7 +694,7 @@ export default function* postSaga () {
 
 #### 4.2.6 启动saga
 
-```js
+```jsx
 import postSaga from './store/sagas/post.sage'
 sagaMiddleware.run(postSaga)
 ```
@@ -727,7 +724,7 @@ sagaMiddleware.run(postSaga)
 ```
 
 ##### component
-```js
+```jsx
 // component/Counter.js
 import React from "react"
 import { connect } from 'react-redux'
@@ -758,7 +755,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(counterActions, dispat
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 ```
 
-```js
+```jsx
 // component/Modal.js
 import React from 'react'
 import { connect } from 'react-redux'
@@ -802,7 +799,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Modal);
 ```
 
 ##### store/actions
-```js
+```jsx
 // counter.action.js
 import { DECREMENT, INCREMENT, INCREMENT_ASYNC } from "../const/counter.const"
 
@@ -813,7 +810,7 @@ export const increment_async = payload => ({ type: INCREMENT_ASYNC, payload })
 
 ```
 
-```js
+```jsx
 // modal.action.js
 import { ISHIDEMODAL, ISSHOWMODAL, SHOWMODALASYNC } from "../const/modal.const"
 
@@ -825,20 +822,20 @@ export const show_async = () => ({ type: SHOWMODALASYNC })
 ```
 
 ##### store/const
-```js
+```jsx
 // counter.const.js
 export const INCREMENT = 'increment'
 export const DECREMENT = 'decrement'
 export const INCREMENT_ASYNC = 'increment_async'
 ```
-```js
+```jsx
 export const ISSHOWMODAL = 'isShowModal'
 export const ISHIDEMODAL = 'isHideModal'
 export const SHOWMODALASYNC = 'showModal_async'
 ```
 
 ##### store/reducers
-```js
+```jsx
 // counter.reducer.js
 import { DECREMENT, INCREMENT } from "../const/counter.const"
 
@@ -864,7 +861,7 @@ export default (state = initialState, action) => {
   }
 }
 ```
-```js
+```jsx
 // modal.reducer.js
 import { ISSHOWMODAL, ISHIDEMODAL } from "../const/modal.const"
 
@@ -892,7 +889,7 @@ export default (state = initialState, action) => {
 ```
 
 ##### store/sagas
-```js
+```jsx
 // counter.saga.js
 import { takeEvery, put, delay } from 'redux-saga/effects'
 import { increment, increment_async } from '../actions/counter.action'
@@ -915,7 +912,7 @@ export default function *  counterSaga() {
 }
 ```
 
-```js
+```jsx
 // modal.saga.js
 import { takeEvery, put, delay } from 'redux-saga/effects'
 import { isShow } from '../actions/modal.action'
@@ -931,7 +928,7 @@ export default function* modalSaga () {
 }
 ```
 
-```js
+```jsx
 import { all } from 'redux-saga/effects'
 import counterSaga from './counter.saga'
 import modalSaga from './modal.saga'
@@ -946,7 +943,7 @@ export default function* rootSaga () {
 ```
 
 ##### store/index.js
-```js
+```jsx
 import { createStore, applyMiddleware } from 'redux'
 import RootReducer from './reducers/root.reducer'
 import createSagaMiddleware from 'redux-saga'
@@ -974,7 +971,7 @@ redux流程中大量的样板代码读写很痛苦，使用redux-actions可以�
 
 #### 4.3.3 创建Action
 
-```js
+```jsx
 import { createAction } from 'redux-action'
 
 const increment_action = createAction('increment')
@@ -982,7 +979,7 @@ const decrement_action = createAction('decrement')
 ```
 
 #### 4.3.4 创建Reducer
-```js
+```jsx
 import { handleActions as createReducer } from 'redux-actions'
 import { increment_action, decrement_action } from '../action/counter.action'
 
@@ -1020,7 +1017,7 @@ export default counterReducer
 ```
 
 ##### src/components/Counter.js
-```js
+```jsx
 import React from "react"
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -1051,7 +1048,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 ```
 ##### src/components/Modal.js (该文件并未改动)
 ##### src/store/actions/counter.action.js
-```js
+```jsx
 // 此处是用了 createAction 去一个个创建 也有 createActions 方法
 import { createAction } from 'redux-actions'
 
@@ -1061,7 +1058,7 @@ export const decrement = createAction('decrement')
 ```
 ##### src/store/actions/modal.action.js (该文件并未改动)
 ##### src/reducers/counter.reducer.js
-```js
+```jsx
 import { handleActions as createReducer } from 'redux-actions'
 import { increment, decrement } from '../actions/counter.action'
 

@@ -48,7 +48,7 @@ category:
 
 ##### 1.3.1 创建 web 服务器
 
-```js
+```jsx
 // server.js
 import express from "express"
 const app = express()
@@ -72,7 +72,7 @@ app.listen(3000, () => console.log("server is running"))
 
 ##### 1.3.2 服务端 webpack 配置
 
-```js
+```jsx
 // webpack.config.server.js
 const path = require("path")
 const nodeExternals = require("webpack-node-externals")
@@ -102,7 +102,7 @@ module.exports = {
 
 ##### 1.3.3 babel 配置
 
-```js
+```jsx
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"]
 }
@@ -110,7 +110,7 @@ module.exports = {
 
 ##### 1.3.4 客户端 webpack 配置
 
-```js
+```jsx
 const path = require("path")
 
 module.exports = {
@@ -153,7 +153,7 @@ module.exports = {
 
 利用浏览器的空余时间执行任务，如果有更高优先级的任务要执行时，当前执行的任务可以被终止，优先执行高级别任务。
 
-```js
+```jsx
 requestIdleCallback(function(deadline) {
   // deadline.timeRemaining() 获取浏览器的空余时间
 })
@@ -189,7 +189,7 @@ requestIdleCallback(function(deadline) {
 </style>
 ```
 
-```js
+```jsx
 var play = document.getElementById("play")
 var workBtn = document.getElementById("work")
 var interactionBtn = document.getElementById("interaction")
@@ -241,7 +241,7 @@ DOM 更新操作: newFiber vs oldFiber -> Fiber[] -> DOM
 
 #### 3.4 Fiber 对象
 
-```js
+```jsx
 {
   type         节点类型 (元素, 文本, 组件)(具体的类型)
   props        节点属性
