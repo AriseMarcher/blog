@@ -1,5 +1,5 @@
 ---
-title: Gulp配置篇--09--gulp-watch
+title: Gulp配置篇--gulp-watch
 excerpt: 学而不思则罔，思而不学则殆。-- 孔子
 sidebar: true
 tag:

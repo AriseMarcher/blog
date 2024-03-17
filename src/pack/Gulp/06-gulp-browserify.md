@@ -1,5 +1,5 @@
 ---
-title: Gulp配置篇--06--js-browserify+babel
+title: Gulp配置篇--js-browserify+babel
 excerpt: 少年易学老难成，一寸光阴不可轻。-- 朱熹
 sidebar: true
 tag:

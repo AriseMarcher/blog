@@ -1,5 +1,5 @@
 ---
-title: Gulp配置篇--07--js使用js库jq扩展
+title: Gulp配置篇--js使用js库jq扩展
 excerpt: 穷则独善其身，达则兼济天下。-- 孟子
 sidebar: true
 tag:

@@ -1,5 +1,5 @@
 ---
-title: Gulp配置篇--04--压缩js
+title: Gulp配置篇--压缩js
 excerpt: 真正的才智是坚毅的志向-- 拿破仑
 sidebar: true
 tag:
@@ -13,6 +13,12 @@ category:
 + gulp-load-plugins 为了更便捷的引入gulp相关插件 [传送门](https://github.com/jackfranklin/gulp-load-plugins)
 + gulp-uglify 对js进行压缩 [传送门](https://github.com/terinjokes/gulp-uglify)
 + ulp-strip-debug 去除js代码中的console、debugger [传送门](https://github.com/sindresorhus/gulp-strip-debug)
+
+:::tip
+gulp-terser 也是压缩js代码的插件，比uglify更加强大
+.pipe(terser({ mangle: { toplevel: true } })) // 变量换成o等，丑陋的代码，Good.
+.pipe(terser({ toplevel: true })) // 删除不必要代码，压缩等
+:::
 
 ## 文件目录结构
 

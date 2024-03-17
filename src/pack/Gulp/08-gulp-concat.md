@@ -1,5 +1,5 @@
 ---
-title: Gulp配置篇--08--concat合并文件使用
+title: Gulp配置篇--concat合并文件使用
 excerpt: 业精于勤，荒于嬉；行成于思，毁于随。-- 韩愈
 sidebar: true
 tag:

@@ -5,12 +5,10 @@ export default navbar([
   // "/demo/",
   {
     text: "前端",
-    icon: "pen-to-square",
     prefix: "/",
     children: [
       {
         text: "基础",
-        icon: "pen-to-square",
         prefix: "web/",
         children: [
           { text: "JavaScript", icon: "pen-to-square", link: "JavaScript/" },
@@ -20,7 +18,6 @@ export default navbar([
       },
       {
         text: "框架",
-        icon: "pen-to-square",
         prefix: "frame/",
         children: [
           { text: "Vue", icon: "pen-to-square", link: "Vue/" },
@@ -29,7 +26,6 @@ export default navbar([
       },
       {
         text: "打包",
-        icon: "pen-to-square",
         prefix: "pack/",
         children: [
           { text: "Gulp", icon: "pen-to-square", link: "Gulp/" },
@@ -37,9 +33,8 @@ export default navbar([
       },
     ],
   },
-  // {
-  //   text: "V2 文档",
-  //   icon: "book",
-  //   link: "https://theme-hope.vuejs.press/zh/",
-  // },
+  {
+    text: "日记",
+    link: "/diary/",
+  }
 ]);

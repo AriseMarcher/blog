@@ -35,17 +35,18 @@ cd [project-name]
 npm init
 ```
 
-### 创建gulpfile.js文件（根目录下）
+### 创建gulp任务
 
+在当前项目的根目录下创建gulpfile.js文件，开始编写一个简单的任务.
 ```js
 <!-- 这是一些最简单的gulp task示例 -->
 
-// 创建任务方式一
+// 【推荐】创建任务方式一 再exports导出
 function defaultTask (cb) {
   cb()
 }
 
-// 创建任务方式二
+// 【不怎么推荐】创建任务方式二
 // 该方式不需要exports导出就能实现gulp任务导出
 gulp.task('bar', done => {
   // todo something
@@ -54,6 +55,16 @@ gulp.task('bar', done => {
 
 exports.default = defaultTask
 ```
+
+每一个gulp任务都是一个异步的javaScript函数
+
+此函数可以接受一个callback作为参数，调用callback函数任务就会结束。
+或者是一个返回stream、promise、event emitter、child process或observable类型的函数
+
+任务可以是public和private类型
+
++ 公开任务（Public tasks）从gulpfile中被导出（export），可以通过gulp命令直接调用
++ 私有任务（Private tasks）被设计在内部使用，通常作为<code>series()</code>或<code>parallel()</code>组合的组成部分。
 
 ### gulp任务测试
 
@@ -75,3 +86,23 @@ PS D:\arise-codes\gulp-es5-example> npx gulp --tasks
 ```bash
 npx gulp [task-name]
 ```
+
+
+### Gulp和Webpack的区别
+
+gulp的核心概念是 task runner
+
++ 可以定义一系列的任务，等待任务被执行
++ 基于文件Stream的构建流
++ 可以使用gulp的插件体系来完成某些任务
+
+webpack 的核心理念是 module bundle
+
++ webpack是一个模块化的打包工具
++ 可以使用各种各样的loader来加载不同的模块
++ 可以使用各种各样的插件在webpack打包的生命周期完成其他的任务
+
+gulp相比于webpack的优缺点：
+
++ gulp相对于webpack思想更加的简单，易用，更适合编写一些自动化的任务。
++ 对于大型项目（Vue、React、Angular）并不会使用gulp来构建，gulp默认不支持模块化。

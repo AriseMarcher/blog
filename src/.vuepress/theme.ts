@@ -36,11 +36,11 @@ export default hopeTheme({
   },
 
   // 加密配置
-  // encrypt: {
-  //   config: {
-  //     "/demo/encrypt.html": ["1234"],
-  //   },
-  // },
+  encrypt: {
+    config: {
+      "/diary/": ["0303"],
+    },
+  },
 
   // 多语言配置
   metaLocales: {
