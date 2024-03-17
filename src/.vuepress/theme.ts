@@ -118,9 +118,13 @@ export default hopeTheme({
       // 在启用之前安装 mermaid
       // mermaid: true,
 
-      // playground: {
-      //   presets: ["ts", "vue"],
-      // },
+      playground: {
+        presets: [
+          "ts",
+          "vue",
+          "unocss"
+        ],
+      },
 
       // 在启用之前安装 reveal.js
       // revealJs: {

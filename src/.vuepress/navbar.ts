@@ -29,6 +29,7 @@ export default navbar([
         prefix: "pack/",
         children: [
           { text: "Gulp", icon: "pen-to-square", link: "Gulp/" },
+          { text: "Rollup", icon: "pen-to-square", link: "Rollup/" },
         ],
       },
     ],
