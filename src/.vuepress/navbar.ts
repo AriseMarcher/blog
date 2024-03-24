@@ -34,8 +34,4 @@ export default navbar([
       },
     ],
   },
-  {
-    text: "日记",
-    link: "/diary/",
-  }
 ]);
